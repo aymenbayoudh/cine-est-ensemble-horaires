@@ -41,6 +41,420 @@
   },
   "movies": [
     {
+      "title": "ATHENIAN MATERIAL",
+      "genre": "Documentaire",
+      "duration": "01h29",
+      "poster": "https://estensemble.cineoffice.fr/img/92/920e5a5b-8d61-4629-86d7-aa0f26a659bd.jpg",
+      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3134/athenian-material.html",
+      "trailerUrl": "",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [
+          {
+            "time": "16h00",
+            "version": "VOST FR",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3134?showId=57513"
+          }
+        ],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "CHUNGKING EXPRESS",
+      "genre": "Drame",
+      "duration": "01h43",
+      "poster": "https://cine104.fr/public/films/affiches/342_456/cds6p197c8848.jpg",
+      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M197/chungking-express.html",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/8DY-HNI8iaQ?rel=0&autoplay=1&showInfo=0",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [
+          {
+            "time": "18h10",
+            "version": "VOST FR",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/197?showId=56999"
+          }
+        ],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "EDMOND ET LUCY LA FORET C EST L AVENTURE",
+      "genre": "Animation",
+      "duration": "00h45",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/72/72524f7d-dd2e-4f29-8b3d-1ce6285f8cc3.jpeg",
+      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3077/edmond-et-lucy-la-foret-c-est-l-aventure.html",
+      "trailerUrl": "",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [
+          {
+            "time": "16h30",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3077?showId=56916"
+          }
+        ],
+        "sun": [
+          {
+            "time": "11h20",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3077?showId=56915"
+          }
+        ],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "JULIAN",
+      "genre": "Drame",
+      "duration": "01h31",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/ed/ed4130af-65fe-438b-99b8-9014e8ac4463.jpeg",
+      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M2984/julian.html",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/6k5KGqBBajc?rel=0&autoplay=1&showInfo=0",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [
+          {
+            "time": "16h05",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56955"
+          },
+          {
+            "time": "20h15",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56957"
+          }
+        ],
+        "sun": [
+          {
+            "time": "16h15",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56954"
+          }
+        ],
+        "mon": [
+          {
+            "time": "14h30",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56952"
+          },
+          {
+            "time": "16h15",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56953"
+          }
+        ],
+        "tue": [
+          {
+            "time": "20h30",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56950"
+          }
+        ]
+      }
+    },
+    {
+      "title": "JUMPERS",
+      "genre": "Animation",
+      "duration": "01h45",
+      "poster": "https://cine104.fr/public/films/affiches/342_456/cds6p3006682c3.jpg",
+      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3006/jumpers.html",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/K2tl-7DCb8o?rel=0&autoplay=1&showInfo=0",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [
+          {
+            "time": "14h00",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3006?showId=56911"
+          },
+          {
+            "time": "16h15",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3006?showId=56912"
+          }
+        ],
+        "sun": [
+          {
+            "time": "11h00",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3006?showId=56913"
+          },
+          {
+            "time": "14h20",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3006?showId=56914"
+          }
+        ],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "LA COULEUVRE NOIRE",
+      "genre": "Drame",
+      "duration": "01h25",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/44/44d2559e-ff5a-4128-b472-97c3f67c107b.jpeg",
+      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3069/la-couleuvre-noire.html",
+      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/3c/3c54ca35-0a1f-44f4-9640-14d10e29d089.mp4",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [
+          {
+            "time": "20h30",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56938"
+          }
+        ],
+        "sat": [
+          {
+            "time": "14h15",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56939"
+          },
+          {
+            "time": "18h25",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56940"
+          }
+        ],
+        "sun": [
+          {
+            "time": "14h00",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56941"
+          }
+        ],
+        "mon": [
+          {
+            "time": "16h30",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56944"
+          },
+          {
+            "time": "20h30",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56945"
+          }
+        ],
+        "tue": [
+          {
+            "time": "18h30",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56947"
+          },
+          {
+            "time": "20h45",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56946"
+          }
+        ]
+      }
+    },
+    {
+      "title": "LA DANSE DES RENARDS",
+      "genre": "Drame",
+      "duration": "01h32",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/95/9519442b-459c-4b69-933e-c0fe1f2ea4bb.jpeg",
+      "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M2418/la-danse-des-renards.html",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/cGuT95ffWA4?rel=0&autoplay=1&showInfo=0",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [
+          {
+            "time": "20h30",
+            "version": "VF",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2418?showId=56558"
+          }
+        ],
+        "sat": [
+          {
+            "time": "14h15",
+            "version": "VF",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2418?showId=56568"
+          },
+          {
+            "time": "18h45",
+            "version": "VF",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2418?showId=56566"
+          }
+        ],
+        "sun": [
+          {
+            "time": "17h30",
+            "version": "VF",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2418?showId=56582"
+          }
+        ],
+        "mon": [],
+        "tue": [
+          {
+            "time": "20h30",
+            "version": "VF",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2418?showId=56585"
+          }
+        ]
+      }
+    },
+    {
+      "title": "LA GIFLE",
+      "genre": "Comédie",
+      "duration": "01h28",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/4c/4cf75a5b-9ad5-4f09-9016-302c23fddf4f.jpeg",
+      "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M3068/la-gifle.html",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/8LipN8PLr14?rel=0&autoplay=1&showInfo=0",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [
+          {
+            "time": "15h15",
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3068?showId=56564"
+          },
+          {
+            "time": "20h30",
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3068?showId=56572"
+          }
+        ],
+        "sun": [
+          {
+            "time": "19h30",
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3068?showId=56573"
+          }
+        ],
+        "mon": [],
+        "tue": [
+          {
+            "time": "18h15",
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3068?showId=57774"
+          }
+        ]
+      }
+    },
+    {
+      "title": "LA GUERRE DES PRIX",
+      "genre": "Thriller",
+      "duration": "01h36",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/8a/8ad98ba1-43d4-4f34-8e3d-8fb598d5a518.jpeg",
+      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3049/la-guerre-des-prix.html",
+      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/6a/6a3cd9de-3a17-4d31-8641-df7018e16ecf.mp4",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [
+          {
+            "time": "20h45",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56922"
+          }
+        ],
+        "sat": [
+          {
+            "time": "14h30",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56924"
+          },
+          {
+            "time": "18h30",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56923"
+          }
+        ],
+        "sun": [
+          {
+            "time": "11h10",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56925"
+          },
+          {
+            "time": "14h10",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56926"
+          }
+        ],
+        "mon": [
+          {
+            "time": "14h00",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56927"
+          },
+          {
+            "time": "16h45",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56928"
+          }
+        ],
+        "tue": [
+          {
+            "time": "18h15",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56929"
+          }
+        ]
+      }
+    },
+    {
       "title": "LA MAISON DES FEMMES",
       "genre": "Drame",
       "duration": "01h50",
@@ -111,71 +525,231 @@
       }
     },
     {
-      "title": "LA COULEUVRE NOIRE",
+      "title": "MUNICIPALE",
+      "genre": "Docu fiction",
+      "duration": "01h50",
+      "poster": "https://estensemble.cineoffice.fr/img/10/103d9351-f1cb-42fa-9326-659be74534a5.jpg",
+      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3133/municipale.html",
+      "trailerUrl": "",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [
+          {
+            "time": "18h30",
+            "version": "VF",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3133?showId=57512"
+          }
+        ],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "ORPHELIN",
       "genre": "Drame",
-      "duration": "01h25",
-      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/44/44d2559e-ff5a-4128-b472-97c3f67c107b.jpeg",
-      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3069/la-couleuvre-noire.html",
-      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/3c/3c54ca35-0a1f-44f4-9640-14d10e29d089.mp4",
+      "duration": "02h12",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/87/872ed685-a7f4-48a8-9b8e-1f80e5009cd1.jpeg",
+      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3039/orphelin.html",
+      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/55/559a36f2-c146-4e28-9601-31e533b5cee9.mp4",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [
+          {
+            "time": "20h00",
+            "version": "VOST FR",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3039?showId=56933"
+          }
+        ],
+        "sun": [],
+        "mon": [
+          {
+            "time": "20h00",
+            "version": "VOST FR",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3039?showId=56932"
+          }
+        ],
+        "tue": [
+          {
+            "time": "18h00",
+            "version": "VOST FR",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3039?showId=56930"
+          },
+          {
+            "time": "20h15",
+            "version": "VOST FR",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3039?showId=56931"
+          }
+        ]
+      }
+    },
+    {
+      "title": "PLANETES",
+      "genre": "Animation",
+      "duration": "01h16",
+      "poster": "https://estensemble.cineoffice.fr/img/be/bed66f36-4af3-4407-bdb5-6168e582da65.jpg",
+      "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M2985/planetes.html",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Y4ucI60lK_M?rel=0&autoplay=1&showInfo=0",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [
+          {
+            "time": "13h45",
+            "version": "VF",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2985?showId=56563"
+          },
+          {
+            "time": "17h00",
+            "version": "VF",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2985?showId=56565"
+          }
+        ],
+        "sun": [
+          {
+            "time": "16h00",
+            "version": "VF",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2985?showId=56581"
+          }
+        ],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "RESSOURCES HUMAINES",
+      "genre": "comédie dramatique",
+      "duration": "01h45",
+      "poster": "https://cinhoche.fr/public/films/affiches/342_456/cds8p3100279be.jpg",
+      "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M3100/ressources-humaines.html",
+      "trailerUrl": "https://player.allocine.fr/19436948.html",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [
+          {
+            "time": "16h00",
+            "version": "VF",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3100?showId=56580"
+          }
+        ],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "SEND HELP",
+      "genre": "Aventure",
+      "duration": "01h53",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/0f/0f2a3749-5126-4ccb-824e-60c28c428f25.jpeg",
+      "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3065/send-help.html",
+      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/8b/8b3a6e8d-c729-425d-8e51-6519c5fc8bed.mp4",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [
+          {
+            "time": "20h30",
+            "version": "VOST FR",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3065?showId=55437"
+          }
+        ],
+        "sun": [
+          {
+            "time": "18h45",
+            "version": "VOST FR",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3065?showId=56996"
+          }
+        ],
+        "mon": [
+          {
+            "time": "20h15",
+            "version": "VOST FR",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3065?showId=56993"
+          }
+        ],
+        "tue": []
+      }
+    },
+    {
+      "title": "UN JOUR AVEC MON PERE",
+      "genre": "Drame",
+      "duration": "01h45",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/47/471f29b0-85b8-4481-b636-08113d9689d9.jpeg",
+      "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M3074/un-jour-avec-mon-pere.html",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/Sopé Dìrísù, Chibuike Marvellous Egbo, Godwin Egbo?rel=0&autoplay=1&showInfo=0",
       "days": {
         "wed": [],
         "thu": [],
         "fri": [
           {
             "time": "20h30",
-            "version": "VF",
-            "cinema": "Pantin",
-            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56938"
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=56559"
           }
         ],
         "sat": [
           {
-            "time": "14h15",
-            "version": "VF",
-            "cinema": "Pantin",
-            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56939"
+            "time": "16h15",
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=56570"
           },
           {
-            "time": "18h25",
-            "version": "VF",
-            "cinema": "Pantin",
-            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56940"
+            "time": "18h15",
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=56571"
           }
         ],
         "sun": [
           {
             "time": "14h00",
-            "version": "VF",
-            "cinema": "Pantin",
-            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56941"
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=56574"
+          },
+          {
+            "time": "18h30",
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=56575"
           }
         ],
-        "mon": [
+        "mon": [],
+        "tue": [
           {
-            "time": "16h30",
-            "version": "VF",
-            "cinema": "Pantin",
-            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56944"
+            "time": "16h00",
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=57773"
           },
           {
             "time": "20h30",
-            "version": "VF",
-            "cinema": "Pantin",
-            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56945"
-          }
-        ],
-        "tue": [
-          {
-            "time": "18h30",
-            "version": "VF",
-            "cinema": "Pantin",
-            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56947"
-          },
-          {
-            "time": "20h45",
-            "version": "VF",
-            "cinema": "Pantin",
-            "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56946"
+            "version": "VOST FR",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=57775"
           }
         ]
       }
