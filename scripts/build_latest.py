@@ -26,6 +26,16 @@ SAMPLE_SOURCES = [
         "cinema": "Pantin",
         "base_url": "https://cine104.fr",
     },
+    {
+        "path": SAMPLES_DIR / "bobigny.html",
+        "cinema": "Bobigny",
+        "base_url": "https://bobigny...fr",
+    },
+    {
+        "path": SAMPLES_DIR / "montreuil.html",
+        "cinema": "Montreuil",
+        "base_url": "https://montreuil...fr",
+    },
 ]
 
 FR_DAY_ABBR = ["MER.", "JEU.", "VEN.", "SAM.", "DIM.", "LUN.", "MAR."]
