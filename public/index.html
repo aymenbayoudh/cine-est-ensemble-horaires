@@ -3,24 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ciné Est Ensemble Horaires</title>
+  <title>Ciné Est Ensemble — Horaires</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <header class="site-header">
-    <h1>Ciné Est Ensemble — Horaires</h1>
-    <p class="subtitle">Prototype local</p>
+    <div class="header-inner">
+      <div class="header-copy">
+        <h1>Ciné Est Ensemble — Horaires</h1>
+        <p class="subtitle">Prototype local — affichage réseau agrégé</p>
+      </div>
+
+      <div class="view-switch" aria-label="Changer le mode d'affichage">
+        <button id="view-line" class="view-btn is-active" type="button">Affichage ligne</button>
+        <button id="view-grid" class="view-btn" type="button">Affichage grille</button>
+      </div>
+    </div>
   </header>
 
   <main class="page">
     <section class="intro">
-      <p>
-        Première base locale : un bloc film inspiré du rendu Bagnolet,
-        mais alimenté par un JSON séparé.
-      </p>
+      <p>Vue centralisée des films et séances du réseau.</p>
     </section>
 
-    <section id="movies-container" class="movies-container">
+    <section id="movies-container" class="movies-container view-line">
       <p>Chargement...</p>
     </section>
   </main>

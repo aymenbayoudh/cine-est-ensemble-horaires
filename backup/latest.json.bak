@@ -1,0 +1,72 @@
+{
+  "week": {
+    "label": "Semaine du 25/03 au 31/03",
+    "days": [
+      { "key": "wed", "label": "MER. 25" },
+      { "key": "thu", "label": "JEU. 26" },
+      { "key": "fri", "label": "VEN. 27" },
+      { "key": "sat", "label": "SAM. 28" },
+      { "key": "sun", "label": "DIM. 29" },
+      { "key": "mon", "label": "LUN. 30" },
+      { "key": "tue", "label": "MAR. 31" }
+    ]
+  },
+  "movies": [
+    {
+      "title": "LA MAISON DES FEMMES",
+      "genre": "Drame",
+      "duration": "01h50",
+      "poster": "https://cinemedia2.cinedigitalmanager.com/medias//2/2b/2b64d00e-d016-46c2-bf8d-409bdf0a21b7.jpg",
+      "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M3007/la-maison-des-femmes.html",
+      "trailerUrl": "https://www.youtube-nocookie.com/embed/yAwvKg9T47Q?rel=0&autoplay=1&showInfo=0",
+      "days": {
+        "wed": [],
+        "thu": [
+          {
+            "time": "18h45",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3007?showId=56567"
+          },
+          {
+            "time": "20h45",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3007?showId=56983"
+          }
+        ],
+        "fri": [],
+        "sat": [
+          {
+            "time": "20h45",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3007?showId=56567"
+          }
+        ],
+        "sun": [
+          {
+            "time": "13h45",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3007?showId=56578"
+          },
+          {
+            "time": "16h30",
+            "cinema": "Pantin",
+            "bookingUrl": "https://pantincine104.cine.boutique/media/3007?showId=56988"
+          }
+        ],
+        "mon": [],
+        "tue": [
+          {
+            "time": "16h00",
+            "cinema": "Bagnolet",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3007?showId=56583"
+          },
+          {
+            "time": "18h15",
+            "cinema": "Bagnolet (OCAP)",
+            "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3007?showId=56584"
+          }
+        ]
+      }
+    }
+  ]
+}
