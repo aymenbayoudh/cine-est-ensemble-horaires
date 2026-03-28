@@ -14,6 +14,7 @@ const CINEMA_LINKS = {
   bobigny: 'https://cine-aliceguy.fr/FR/43/horaires-cinema-alice-guy-bobigny.html',
   bondy: 'https://cinemalraux.fr/FR/43/horaires-cinema-andre-malraux-bondy.html',
 };
+const FILTER_CINEMA_KEYS = ['montreuil', 'pantin', 'romainville', 'bagnolet', 'bobigny', 'bondy'];
 
 const state = {
   data: null,
@@ -57,15 +58,18 @@ function getSelectedWeek() {
   const weeks = getCurrentWeeks();
   return weeks.find((entry) => (entry.id || entry.week?.label) === state.selectedWeekId) || weeks[0] || null;
 }
+
 function getLocalDateFromIso(dateStr) {
   if (!dateStr) return null;
   const d = new Date(`${dateStr}T00:00:00`);
   return new Date(d.getFullYear(), d.getMonth(), d.getDate());
 }
+
 function getTodayDate() {
   const now = new Date();
   return new Date(now.getFullYear(), now.getMonth(), now.getDate());
 }
+
 function getTodayIndex(daysConfig) {
   const today = getTodayDate();
   return (daysConfig || []).findIndex((day) => {
@@ -73,14 +77,17 @@ function getTodayIndex(daysConfig) {
     return !!target && target.getTime() === today.getTime();
   });
 }
+
 function getVisibleDays(daysConfig) {
   const todayIndex = getTodayIndex(daysConfig || []);
   return todayIndex >= 0 ? (daysConfig || []).slice(todayIndex) : (daysConfig || []);
 }
+
 function titleCaseDayAbbrev(label) {
   const base = String(label || '').trim().toLowerCase();
   return base ? base.charAt(0).toUpperCase() + base.slice(1) : '';
 }
+
 function formatDisplayDate(day) {
   if (!day || !day.date) return day?.label || '';
   const date = getLocalDateFromIso(day.date);
@@ -95,8 +102,10 @@ function formatDisplayDate(day) {
   const mm = String(date.getMonth() + 1).padStart(2, '0');
   return `${dayLabel} ${dd}/${mm}`;
 }
+
 function getDateFilterLabel(day) { return formatDisplayDate(day); }
 function getRelativeDayLabel(day) { return formatDisplayDate(day); }
+
 function formatWeekRangeLabel(week) {
   const days = week?.days || [];
   if (days.length < 7) return week?.label || '';
@@ -113,10 +122,12 @@ function formatWeekRangeLabel(week) {
   const lmm = String(lastDate.getMonth() + 1).padStart(2, '0');
   return `Semaine du ${f} ${fdd}/${fmm} au ${l} ${ldd}/${lmm}`;
 }
+
 function timeToMinutes(timeStr) {
   const match = /^(\d{1,2})h(\d{2})$/.exec(String(timeStr || ''));
   return match ? Number(match[1]) * 60 + Number(match[2]) : 9999;
 }
+
 function getMovieDayItems(movie, key) { return movie?.days?.[key] || []; }
 
 function getBestLeadDayPriority(movie, week) {
@@ -138,6 +149,7 @@ function getBestLeadDayPriority(movie, week) {
 function hasVisibleShow(movie, week) {
   return getVisibleDays(week?.days || []).some((day) => getMovieDayItems(movie, day.key).length > 0);
 }
+
 function movieMatchesFilters(movie, week) {
   const selectedCinemas = state.filters.cinemas;
   const selectedDates = state.filters.dates;
@@ -162,6 +174,7 @@ function sortMoviesForWeek(movies, week) {
       const aMatch = query && String(a?.title || '').toLowerCase().includes(query);
       const bMatch = query && String(b?.title || '').toLowerCase().includes(query);
       if (aMatch !== bMatch) return aMatch ? -1 : 1;
+
       const aPriority = getBestLeadDayPriority(a, week);
       const bPriority = getBestLeadDayPriority(b, week);
       if (aPriority.hasLeadDay !== bPriority.hasLeadDay) return aPriority.hasLeadDay ? -1 : 1;
@@ -190,41 +203,49 @@ function renderWeekSwitcher(weeks, selectedId) {
   }).join('');
   return `<div class="week-switcher"><select id="week-select" class="week-select" aria-label="Choisir une semaine">${options}</select></div>`;
 }
-function renderFilterChip(label, chipClass) { return `<span class="filter-chip ${chipClass || ''}">${escapeHtml(label)}</span>`; }
-function getFilterSummaryHtml(week) {
-  const pieces = [];
-  for (const cinemaKey of state.filters.cinemas) pieces.push(renderFilterChip(CINEMA_LABELS[cinemaKey] || cinemaKey, `filter-chip--cinema filter-chip--${cinemaKey}`));
+
+function renderFilterToggleChip(label, classes, type, value, isActive) {
+  const stateClass = isActive ? 'is-active' : 'is-inactive';
+  const pressed = isActive ? 'true' : 'false';
+  return `<button type="button" class="filter-chip filter-chip-toggle ${classes} ${stateClass}" data-filter-type="${type}" data-filter-value="${escapeHtml(value)}" aria-pressed="${pressed}">${escapeHtml(label)}</button>`;
+}
+
+function renderFilterControls(week) {
   const visibleDays = getVisibleDays(week?.days || []);
-  for (const dayKey of state.filters.dates) {
-    const day = visibleDays.find((item) => item.key === dayKey) || (week?.days || []).find((item) => item.key === dayKey);
-    if (day) pieces.push(renderFilterChip(getDateFilterLabel(day), 'filter-chip--date'));
-  }
-  if (!pieces.length) return '<span class="filter-summary-empty">Aucun filtre</span>';
-  return pieces.join('') + '<button id="filter-reset-inline-btn" class="filter-reset-inline-btn" type="button">Réinitialiser</button>';
+  const cinemaChips = FILTER_CINEMA_KEYS.map((cinemaKey) =>
+    renderFilterToggleChip(
+      CINEMA_LABELS[cinemaKey] || cinemaKey,
+      `filter-chip--cinema filter-chip--${cinemaKey}`,
+      'cinema',
+      cinemaKey,
+      state.filters.cinemas.includes(cinemaKey)
+    )
+  ).join('');
+
+  const dateChips = visibleDays.map((day) =>
+    renderFilterToggleChip(
+      getDateFilterLabel(day),
+      'filter-chip--date',
+      'date',
+      day.key,
+      state.filters.dates.includes(day.key)
+    )
+  ).join('');
+
+  return `${cinemaChips}${dateChips}<button id="filter-reset-inline-btn" class="filter-reset-inline-btn" type="button">Réinitialiser</button>`;
 }
+
 function renderTopControls(weeks, selectedId, week) {
-  return `<div class="top-controls">${renderWeekSwitcher(weeks, selectedId)}<div class="filter-bar"><button id="filter-open-btn" class="filter-open-btn" type="button">Filtrer</button><div class="filter-summary" id="filter-summary">${getFilterSummaryHtml(week)}</div></div></div>`;
+  return `<div class="top-controls">${renderWeekSwitcher(weeks, selectedId)}<div class="filter-bar"><div class="filter-summary" id="filter-summary">${renderFilterControls(week)}</div></div></div>`;
 }
-function renderCinemaOption(cinemaKey) {
-  const checked = state.filters.cinemas.includes(cinemaKey) ? ' checked' : '';
-  return `<label class="filter-option filter-option--${cinemaKey}"><input class="filter-cinema-input" type="checkbox" value="${cinemaKey}"${checked}><span class="filter-box"></span><span class="filter-option-text">${escapeHtml(CINEMA_LABELS[cinemaKey])}</span></label>`;
-}
-function renderDateOption(day) {
-  const checked = state.filters.dates.includes(day.key) ? ' checked' : '';
-  return `<label class="filter-option filter-option--date"><input class="filter-date-input" type="checkbox" value="${escapeHtml(day.key)}"${checked}><span class="filter-box"></span><span class="filter-option-text">${escapeHtml(getDateFilterLabel(day))}</span></label>`;
-}
-function renderFilterModal(week) {
-  if (!week) return '';
-  const visibleDays = getVisibleDays(week.days || []);
-  const cinemaOptions = ['montreuil','pantin','romainville','bagnolet','bobigny','bondy'].map(renderCinemaOption).join('');
-  const dateOptions = visibleDays.map(renderDateOption).join('');
-  return `<div id="filter-modal" class="filter-modal" aria-hidden="true"><div class="filter-modal__backdrop" data-filter-close="true"></div><div class="filter-modal__panel" role="dialog" aria-modal="true" aria-labelledby="filter-title"><div class="filter-modal__header"><h2 id="filter-title" class="filter-modal__title">Filtrer</h2><button id="filter-close-btn" class="filter-modal__close" type="button" aria-label="Fermer">×</button></div><div class="filter-modal__section"><div class="filter-modal__subtitle">Cinémas</div><div class="filter-options-row">${cinemaOptions}</div></div><div class="filter-modal__section"><div class="filter-modal__subtitle">Dates</div><div class="filter-options-row">${dateOptions}</div></div><div class="filter-modal__actions"><button id="filter-reset-btn" class="filter-reset-btn" type="button">Réinitialiser</button><button id="filter-apply-btn" class="filter-apply-btn" type="button">Valider</button></div></div></div>`;
-}
+
 function renderInfoModal() {
-  const items = ['montreuil','pantin','romainville','bagnolet','bobigny','bondy']
-    .map((key) => `<li><strong>${escapeHtml(CINEMA_LABELS[key])}</strong> : <a href="${escapeHtml(CINEMA_LINKS[key])}" target="_blank" rel="noopener noreferrer">${escapeHtml(CINEMA_LINKS[key])}</a></li>`).join('');
+  const items = FILTER_CINEMA_KEYS
+    .map((key) => `<li><strong>${escapeHtml(CINEMA_LABELS[key])}</strong> : <a href="${escapeHtml(CINEMA_LINKS[key])}" target="_blank" rel="noopener noreferrer">${escapeHtml(CINEMA_LINKS[key])}</a></li>`)
+    .join('');
   return `<div id="info-modal" class="info-modal" aria-hidden="true"><div class="filter-modal__backdrop" data-info-close="true"></div><div class="filter-modal__panel info-modal__panel" role="dialog" aria-modal="true" aria-labelledby="info-title"><div class="filter-modal__header"><h2 id="info-title" class="filter-modal__title">Liens vers sites des cinémas</h2><button id="info-close-btn" class="filter-modal__close" type="button" aria-label="Fermer">×</button></div><div class="info-modal__content"><ul class="info-links-list">${items}</ul></div></div></div>`;
 }
+
 function renderSchedule(daysConfig, movieDays) {
   const visibleDays = getVisibleDays(daysConfig || []);
   const ths = visibleDays.map((day) => `<th>${escapeHtml(day.label)}</th>`).join('');
@@ -241,6 +262,7 @@ function renderSchedule(daysConfig, movieDays) {
   }).join('');
   return `<div class="schedule-wrap"><table class="schedule"><tr>${ths}</tr><tr>${tds}</tr></table></div>`;
 }
+
 function renderGridDayBlocks(daysConfig, movieDays) {
   const visibleDays = getVisibleDays(daysConfig || []);
   return visibleDays.map((day) => {
@@ -256,19 +278,29 @@ function renderGridDayBlocks(daysConfig, movieDays) {
     return `<div class="grid-day-block"><div class="grid-day-title">${escapeHtml(label)}</div>${shows}</div>`;
   }).join('');
 }
-function renderInfoButton(url, extraClass = 'btn') { return url ? `<a class="${extraClass}" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Infos et bande-annonce</a>` : ''; }
-function renderPoster(url, title, className = '') { return url ? `<img class="${className}" src="${escapeHtml(url)}" alt="Affiche ${escapeHtml(title)}">` : ''; }
+
+function renderInfoButton(url, extraClass = 'btn') {
+  return url ? `<a class="${extraClass}" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Infos et bande-annonce</a>` : '';
+}
+
+function renderPoster(url, title, className = '') {
+  return url ? `<img class="${className}" src="${escapeHtml(url)}" alt="Affiche ${escapeHtml(title)}">` : '';
+}
+
 function renderListMovie(movie, week, index) {
   return `<article class="movie-list-card" data-movie-index="${index}"><div class="poster-wrap">${movie.infoUrl ? `<a href="${escapeHtml(movie.infoUrl)}" target="_blank" rel="noopener noreferrer">${renderPoster(movie.poster, movie.title)}</a>` : renderPoster(movie.poster, movie.title)}</div><div class="movie-content"><h3 class="movie-title">${escapeHtml(movie.title)}</h3><div class="movie-meta">${escapeHtml(movie.genre || '')}${movie.genre && movie.duration ? ' · ' : ''}${escapeHtml(movie.duration || '')}</div><div class="movie-links">${renderInfoButton(movie.infoUrl)}</div>${renderSchedule(week.days || [], movie.days || {})}</div></article>`;
 }
+
 function renderGridMovie(movie, week, index) {
   return `<article class="movie-grid-card" data-movie-index="${index}">${renderPoster(movie.poster, movie.title, 'movie-grid-poster')}<div class="movie-grid-overlay"><div class="movie-grid-title">${escapeHtml(movie.title)}</div><div class="movie-grid-meta">${escapeHtml(movie.genre || '')}${movie.genre && movie.duration ? ' · ' : ''}${escapeHtml(movie.duration || '')}</div><div class="movie-grid-actions">${renderInfoButton(movie.infoUrl, 'grid-btn')}</div><div class="grid-scroll">${renderGridDayBlocks(week.days || [], movie.days || {})}</div></div></article>`;
 }
+
 function renderMovies(movies, week) {
   const visibleMovies = sortMoviesForWeek(movies || [], week);
   if (!visibleMovies.length) return '<div class="empty">Aucun film ne correspond aux filtres sélectionnés.</div>';
   return visibleMovies.map((movie, index) => `${renderListMovie(movie, week, index)}${renderGridMovie(movie, week, index)}`).join('');
 }
+
 function setView(view) {
   state.view = view;
   const container = document.getElementById('movies-container');
@@ -280,6 +312,7 @@ function setView(view) {
   btnLine.classList.toggle('is-active', view === 'line');
   btnGrid.classList.toggle('is-active', view === 'grid');
 }
+
 function setupViewSwitch() {
   const btnLine = document.getElementById('view-line');
   const btnGrid = document.getElementById('view-grid');
@@ -288,6 +321,7 @@ function setupViewSwitch() {
   btnGrid.onclick = () => setView('grid');
   setView(state.view);
 }
+
 function setupGridCardTouchBehavior() {
   document.querySelectorAll('.movie-grid-card').forEach((card) => {
     card.onclick = (event) => {
@@ -296,18 +330,40 @@ function setupGridCardTouchBehavior() {
     };
   });
 }
-function openFilterModal() { const modal = document.getElementById('filter-modal'); if (modal) { modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); } }
-function closeFilterModal() { const modal = document.getElementById('filter-modal'); if (modal) { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); } }
-function openInfoModal() { const modal = document.getElementById('info-modal'); if (modal) { modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); } }
-function closeInfoModal() { const modal = document.getElementById('info-modal'); if (modal) { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); } }
-function applyFiltersFromModal() {
-  const cinemaInputs = Array.from(document.querySelectorAll('.filter-cinema-input:checked'));
-  const dateInputs = Array.from(document.querySelectorAll('.filter-date-input:checked'));
-  state.filters = { cinemas: cinemaInputs.map((input) => input.value), dates: dateInputs.map((input) => input.value) };
-  closeFilterModal();
+
+function openInfoModal() {
+  const modal = document.getElementById('info-modal');
+  if (modal) {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+  }
+}
+
+function closeInfoModal() {
+  const modal = document.getElementById('info-modal');
+  if (modal) {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+}
+
+function toggleFilterValue(type, value) {
+  if (type === 'cinema') {
+    const exists = state.filters.cinemas.includes(value);
+    state.filters.cinemas = exists ? state.filters.cinemas.filter((item) => item !== value) : [...state.filters.cinemas, value];
+  }
+  if (type === 'date') {
+    const exists = state.filters.dates.includes(value);
+    state.filters.dates = exists ? state.filters.dates.filter((item) => item !== value) : [...state.filters.dates, value];
+  }
   renderApp();
 }
-function resetFilters() { state.filters = { cinemas: [], dates: [] }; closeFilterModal(); renderApp(); }
+
+function resetFilters() {
+  state.filters = { cinemas: [], dates: [] };
+  renderApp();
+}
+
 function performPageSearch() {
   const input = document.getElementById('page-search-input');
   const status = document.getElementById('page-search-status');
@@ -319,44 +375,60 @@ function performPageSearch() {
   const selectedWeek = getSelectedWeek();
   const visibleMovies = sortMoviesForWeek(selectedWeek?.movies || [], selectedWeek?.week || {});
   const hasMatch = visibleMovies.some((movie) => String(movie?.title || '').toLowerCase().includes(state.searchQuery.toLowerCase()));
-  if (!hasMatch) { status.textContent = 'Aucun titre correspondant'; input.classList.add('is-error'); }
+  if (!hasMatch) {
+    status.textContent = 'Aucun titre correspondant';
+    input.classList.add('is-error');
+  }
   renderApp();
 }
+
 function setupSearchControls() {
   const input = document.getElementById('page-search-input');
   const button = document.getElementById('page-search-btn');
   if (!input || !button) return;
   input.value = state.searchQuery || '';
-  input.onkeydown = (event) => { if (event.key === 'Enter') { event.preventDefault(); performPageSearch(); } };
+  input.onkeydown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      performPageSearch();
+    }
+  };
   input.oninput = () => {
     const status = document.getElementById('page-search-status');
     if (status) status.textContent = '';
     input.classList.remove('is-error');
-    if (!input.value.trim() && state.searchQuery) { state.searchQuery = ''; renderApp(); }
+    if (!input.value.trim() && state.searchQuery) {
+      state.searchQuery = '';
+      renderApp();
+    }
   };
   button.onclick = performPageSearch;
 }
+
 function setupControlEvents() {
   const weekSelect = document.getElementById('week-select');
-  const filterOpenBtn = document.getElementById('filter-open-btn');
-  const filterCloseBtn = document.getElementById('filter-close-btn');
-  const filterApplyBtn = document.getElementById('filter-apply-btn');
-  const filterResetBtn = document.getElementById('filter-reset-btn');
   const filterResetInlineBtn = document.getElementById('filter-reset-inline-btn');
   const infoOpenBtn = document.getElementById('info-open-btn');
   const infoCloseBtn = document.getElementById('info-close-btn');
-  if (weekSelect) weekSelect.onchange = (event) => { state.selectedWeekId = event.target.value; state.filters = { cinemas: [], dates: [] }; renderApp(); };
-  if (filterOpenBtn) filterOpenBtn.onclick = openFilterModal;
-  if (filterCloseBtn) filterCloseBtn.onclick = closeFilterModal;
-  if (filterApplyBtn) filterApplyBtn.onclick = applyFiltersFromModal;
-  if (filterResetBtn) filterResetBtn.onclick = resetFilters;
+
+  if (weekSelect) {
+    weekSelect.onchange = (event) => {
+      state.selectedWeekId = event.target.value;
+      state.filters = { cinemas: [], dates: [] };
+      renderApp();
+    };
+  }
   if (filterResetInlineBtn) filterResetInlineBtn.onclick = resetFilters;
   if (infoOpenBtn) infoOpenBtn.onclick = openInfoModal;
   if (infoCloseBtn) infoCloseBtn.onclick = closeInfoModal;
-  document.querySelectorAll('[data-filter-close="true"]').forEach((node) => { node.onclick = closeFilterModal; });
+
+  document.querySelectorAll('.filter-chip-toggle').forEach((node) => {
+    node.onclick = () => toggleFilterValue(node.dataset.filterType, node.dataset.filterValue);
+  });
   document.querySelectorAll('[data-info-close="true"]').forEach((node) => { node.onclick = closeInfoModal; });
-  document.onkeydown = (event) => { if (event.key === 'Escape') { closeFilterModal(); closeInfoModal(); } };
+  document.onkeydown = (event) => { if (event.key === 'Escape') closeInfoModal(); };
 }
+
 function renderApp() {
   const switcherContainer = document.getElementById('week-switcher-container');
   const moviesContainer = document.getElementById('movies-container');
@@ -367,7 +439,7 @@ function renderApp() {
     if (moviesContainer) moviesContainer.innerHTML = '<div class="empty">Aucune donnée disponible.</div>';
     return;
   }
-  if (switcherContainer) switcherContainer.innerHTML = `${renderTopControls(weeks, selectedWeek.id || selectedWeek.week?.label, selectedWeek.week)}${renderFilterModal(selectedWeek.week)}`;
+  if (switcherContainer) switcherContainer.innerHTML = renderTopControls(weeks, selectedWeek.id || selectedWeek.week?.label, selectedWeek.week);
   if (moviesContainer) moviesContainer.innerHTML = renderMovies(selectedWeek.movies || [], selectedWeek.week || {});
   setupViewSwitch();
   setupControlEvents();
@@ -375,6 +447,7 @@ function renderApp() {
   setupGridCardTouchBehavior();
   setView(state.view);
 }
+
 async function main() {
   const moviesContainer = document.getElementById('movies-container');
   const infoModalMount = document.getElementById('info-modal-mount');
@@ -389,4 +462,5 @@ async function main() {
     if (moviesContainer) moviesContainer.innerHTML = `<div class="empty">Erreur : ${escapeHtml(error.message)}</div>`;
   }
 }
+
 main();

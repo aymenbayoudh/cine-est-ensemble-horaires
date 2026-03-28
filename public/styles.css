@@ -687,3 +687,42 @@ a { color: inherit; }
     min-width: 0;
   }
 }
+
+
+/* V7 – filtres en chips cliquables */
+.filter-open-btn {
+  display: none;
+}
+
+.filter-summary {
+  gap: 8px;
+}
+
+.filter-chip-toggle {
+  appearance: none;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.filter-chip-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.filter-chip-toggle.is-inactive {
+  opacity: 0.42;
+}
+
+.filter-chip-toggle.is-active {
+  opacity: 1;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08) inset;
+}
+
+.filter-chip-toggle.filter-chip--date.is-inactive {
+  background: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .filter-summary {
+    gap: 6px;
+  }
+}
