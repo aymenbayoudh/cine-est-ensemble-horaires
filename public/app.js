@@ -346,7 +346,7 @@ function renderInfoModal() {
       <div class="filter-modal__backdrop" data-info-close="true"></div>
       <div class="filter-modal__panel info-modal__panel" role="dialog" aria-modal="true" aria-labelledby="info-title">
         <div class="filter-modal__header">
-          <h2 id="info-title" class="filter-modal__title">Liens des sites des cinémas</h2>
+          <h2 id="info-title" class="filter-modal__title">Liens vers sites des cinémas</h2>
           <button id="info-close-btn" class="filter-modal__close" type="button" aria-label="Fermer">×</button>
         </div>
         <div class="info-modal__content">
