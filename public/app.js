@@ -1,6 +1,6 @@
 
 async function loadData() {
-  const response = await fetch('../data/latest.json');
+  const response = await fetch('./data/latest.json');
   if (!response.ok) {
     throw new Error('Impossible de charger data/latest.json');
   }
