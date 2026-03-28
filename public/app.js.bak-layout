@@ -14,14 +14,6 @@ const CINEMA_LINKS = {
   bobigny: 'https://cine-aliceguy.fr/FR/43/horaires-cinema-alice-guy-bobigny.html',
   bondy: 'https://cinemalraux.fr/FR/43/horaires-cinema-andre-malraux-bondy.html',
 };
-const CINEMA_SITE_NAMES = {
-  montreuil: 'Le Méliès',
-  pantin: 'Ciné 104',
-  romainville: 'Le Trianon',
-  bagnolet: "Cin'Hoche",
-  bobigny: 'Cinéma Alice Guy',
-  bondy: 'Ciné Malraux',
-};
 const FILTER_CINEMA_KEYS = ['montreuil', 'pantin', 'romainville', 'bagnolet', 'bobigny', 'bondy'];
 const TIME_DOMAIN = { min: 8 * 60, max: 24 * 60 - 5, sliderStep: 5, histogramStep: 30 };
 
@@ -257,7 +249,7 @@ function getTimeHistogram(source) {
     ...bin,
     height: bin.count === 0
       ? 2
-      : Math.max(5, Math.round((bin.count / maxCount) * 31)),
+      : Math.max(5, Math.round((bin.count / maxCount) * 21)),
   }));
 }
 
@@ -327,16 +319,9 @@ function renderTopControls(weeks, selectedId, week) {
   return `<div class="top-controls">${renderWeekSwitcher(weeks, selectedId)}${renderTimeFilterPanel(week)}<div class="filter-bar"><div class="filter-summary" id="filter-summary">${renderFilterControls(week)}</div></div></div>`;
 }
 function renderInfoModal() {
-  const items = FILTER_CINEMA_KEYS.map((key) => {
-    const href = CINEMA_LINKS[key];
-    const siteName = CINEMA_SITE_NAMES[key];
-
-    return `<li><strong>${escapeHtml(CINEMA_LABELS[key])}</strong> : <a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(siteName)}</a></li>`;
-  }).join('');
-
+  const items = FILTER_CINEMA_KEYS.map((key) => `<li><strong>${escapeHtml(CINEMA_LABELS[key])}</strong> : <a href="${escapeHtml(CINEMA_LINKS[key])}" target="_blank" rel="noopener noreferrer">${escapeHtml(CINEMA_LINKS[key])}</a></li>`).join('');
   return `<div id="info-modal" class="info-modal" aria-hidden="true"><div class="filter-modal__backdrop" data-info-close="true"></div><div class="filter-modal__panel info-modal__panel" role="dialog" aria-modal="true" aria-labelledby="info-title"><div class="filter-modal__header"><h2 id="info-title" class="filter-modal__title">Liens vers sites des cinémas</h2><button id="info-close-btn" class="filter-modal__close" type="button" aria-label="Fermer">×</button></div><div class="info-modal__content"><ul class="info-links-list">${items}</ul></div></div></div>`;
 }
-
 function renderSchedule(daysConfig, movieDays) {
   const visibleDays = getVisibleDays(daysConfig || []);
   const ths = visibleDays.map((day) => `<th>${escapeHtml(day.label)}</th>`).join('');

@@ -637,6 +637,7 @@ def collect_erakys_movies_for_two_weeks(
 def main() -> int:
     parser = argparse.ArgumentParser(description='Build unified latest.json with current + next Wednesday-to-Tuesday weeks (V3 with Erakys AJAX weeks)')
     parser.add_argument('--output', default='data/latest.json')
+    parser.add_argument('--public-output', default='public/data/latest.json')
     parser.add_argument('--today', default=None)
     parser.add_argument('--seed', default='data/latest.json')
     parser.add_argument('--trianon-html', default=None)
@@ -700,10 +701,18 @@ def main() -> int:
         'weeks': [current_week, next_week],
     }
 
+    payload_json = json.dumps(payload, ensure_ascii=False, indent=2)
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
+    out_path.write_text(payload_json, encoding='utf-8')
     print(f"Wrote {out_path}")
+
+    if getattr(args, 'public_output', None):
+        public_path = Path(args.public_output)
+        public_path.parent.mkdir(parents=True, exist_ok=True)
+        public_path.write_text(payload_json, encoding='utf-8')
+        print(f"Wrote {public_path}")
+
     return 0
 
 

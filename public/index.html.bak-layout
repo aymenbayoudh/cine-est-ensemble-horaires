@@ -6,7 +6,7 @@
   <title>Cinémas d'Est Ensemble</title>
   <link rel="icon" type="image/svg+xml" href="./Logo_Est.svg" />
   <link rel="shortcut icon" href="./Logo_Est.svg" />
-  <link rel="stylesheet" href="./styles.css?v=histov20" />
+  <link rel="stylesheet" href="./styles.css?v=histov18" />
 </head>
 <body>
   <header class="site-header">
@@ -40,6 +40,6 @@
     </section>
   </main>
   <div id="info-modal-mount"></div>
-  <script src="./app.js?v=histov20" defer></script>
+  <script src="./app.js?v=histov18" defer></script>
 </body>
 </html>

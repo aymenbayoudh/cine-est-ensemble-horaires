@@ -32,7 +32,7 @@ a { color: inherit; }
   max-width: 1320px;
   margin: 0 auto;
   display: flex;
-  gap: 10px;
+  gap: 16px;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -95,7 +95,7 @@ a { color: inherit; }
   padding: 20px;
 }
 .intro {
-  margin-bottom: 13px;
+  margin-bottom: 20px;
 }
 .page-search {
   display: flex;
@@ -428,12 +428,12 @@ a { color: inherit; }
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
   padding: 18px;
 }
-.info-modal__panel { max-width: 410px; }
+.info-modal__panel { max-width: 860px; }
 .filter-modal__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 14px;
 }
 .filter-modal__title {
@@ -551,7 +551,7 @@ a { color: inherit; }
   .movie-title { font-size: 22px; }
 }
 @media (max-width: 640px) {
-  .site-header { padding: 13px 18px; }
+  .site-header { padding: 16px; }
   .site-header h1 { font-size: 22px; }
   .page { padding: 12px; }
   .movie-list-card {
@@ -619,20 +619,11 @@ a { color: inherit; }
   }
   .movie-grid-overlay { opacity: 1; }
   .grid-scroll { max-height: 48%; }
-  .view-switch {
-  width: auto;
-}
-
-.view-btn {
-  flex: 1 1 auto;
-  padding: 6px 10px;
-  font-size: 13px;
-  min-height: 33px;
-  line-height: 1;
-  border-radius: 12px;
-}
-
-
+  .view-switch { width: 100%; }
+  .view-btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
   .movie-list-card .movie-title {
     font-size: 15px;
     line-height: 1.05;
@@ -1082,7 +1073,7 @@ a { color: inherit; }
 
 .time-filter-chart-wrap {
   position: relative;
-  height: 53px;
+  height: 58px;
   margin-bottom: 0;
   padding: 2px 10px 0;
 }
@@ -1109,7 +1100,7 @@ a { color: inherit; }
 
 .time-filter-selection {
   bottom: 12px;
-  height: 39px;
+  height: 31px;
 }
 
 .time-range-input {
@@ -1133,7 +1124,7 @@ a { color: inherit; }
 .time-filter-axis {
   position: relative;
   height: 12px;
-  margin: 1.5px 10px 0;
+  margin: 4px 10px 0;
   color: var(--muted);
   font-size: 10px;
   line-height: 1;
@@ -1186,12 +1177,12 @@ a { color: inherit; }
   }
 
   .time-filter-axis {
-    margin: 1.15px 8px 0;
+    margin: 4px 8px 0;
     font-size: 9px;
   }
 }
 
-/* V17 – filtres noirs + mobile line full-width schedule */
+/* V18 – mobile line no overlap + slightly shorter poster */
 .filter-chip,
 .filter-chip-toggle,
 .filter-chip-toggle:link,
@@ -1215,32 +1206,27 @@ a { color: inherit; }
 
 @media (max-width: 640px) {
   .movie-list-card {
-    display: grid;
-    grid-template-columns: 68px minmax(0, 1fr);
-    column-gap: 10px;
-    row-gap: 4px;
-    align-items: start;
+    display: block;
     padding: 12px;
   }
 
   .poster-wrap {
-    grid-column: 1;
-    grid-row: 1;
+    float: left;
     width: 68px;
-    align-self: start;
+    margin-right: 10px;
+    margin-bottom: 4px;
+    align-self: auto;
   }
 
   .poster-wrap img {
     width: 100%;
-    max-height: 102px;
+    max-height: 97px;
     object-fit: cover;
   }
 
   .movie-content {
-    grid-column: 2;
-    grid-row: 1;
-    min-width: 0;
     display: block;
+    min-width: 0;
   }
 
   .movie-title {
@@ -1266,54 +1252,9 @@ a { color: inherit; }
   }
 
   .schedule-wrap {
-    width: calc(100% + 78px);
-    margin-left: -78px;
-    margin-top: 0;
+    clear: both;
+    width: 100%;
+    margin-top: 4px;
     overflow: hidden;
   }
 }
-
-/* V20 – mobile list extra gap above schedule */
-@media (max-width: 640px) {
-  .schedule-wrap {
-    margin-top: 38px;
-  }
-}
-
-/* Mobile – recherche sur une seule ligne + bouton loupe carré */
-@media (max-width: 640px) {
-  .page-search {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: stretch;
-    gap: 8px;
-  }
-
-  .page-search-box {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .page-search-btn {
-    flex: 0 0 42px;
-    width: 42px;
-    min-width: 42px;
-    min-height: 42px;
-    padding: 0;
-    border-radius: 12px; /* même rayon que la barre */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0;        /* masque "Rechercher" */
-    line-height: 1;
-  }
-
-  .page-search-btn::before {
-  content: "↵";
-  font-size: 18px;
-  line-height: 1;
-  display: inline-block;
-  transform: translateY(3px);
-}
-}
-
