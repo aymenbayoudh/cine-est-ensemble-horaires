@@ -1,0 +1,69 @@
+name: Build and deploy live site
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5,11,17,23 * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - "public/**"
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/pages-live.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build latest live data
+        run: python scripts/build_latest.v2.py --output data/latest.json
+
+      - name: Prepare Pages artifact
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          cp -R public/. _site/
+          mkdir -p _site/data
+          cp data/latest.json _site/data/latest.json
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
