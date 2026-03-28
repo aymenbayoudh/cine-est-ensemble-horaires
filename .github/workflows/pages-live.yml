@@ -38,8 +38,8 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Build latest live data
-        run: python scripts/build_latest.v2.py --output data/latest.json
+      - name: Build latest live data (V3)
+        run: python scripts/build_latest.V3.py --output data/latest.json
 
       - name: Prepare Pages artifact
         run: |
