@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,14 +7,17 @@
   <title>Ciné Est Ensemble — Horaires</title>
   <link rel="icon" type="image/svg+xml" href="./Logo_Est.svg" />
   <link rel="shortcut icon" href="./Logo_Est.svg" />
-  <link rel="stylesheet" href="./styles.css?v=filters2" />
+  <link rel="stylesheet" href="./styles.css?v=filters4" />
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
       <div class="header-copy">
         <h1>Ciné Est Ensemble — Horaires</h1>
-        <p class="subtitle">Prototype local — affichage réseau agrégé</p>
+        <div class="subtitle-row">
+          <p class="subtitle">Prototype local — affichage réseau agrégé</p>
+          <button id="info-open-btn" class="info-trigger-btn" type="button" aria-label="Informations sur les cinémas">i</button>
+        </div>
       </div>
       <div class="view-switch" aria-label="Changer le mode d'affichage">
         <button id="view-line" class="view-btn is-active" type="button">Affichage ligne</button>
@@ -23,13 +27,20 @@
   </header>
   <main class="page">
     <section class="intro">
-      <p>Vue centralisée des films et séances du réseau.</p>
+      <div class="page-search">
+        <div class="page-search-box">
+          <input id="page-search-input" class="page-search-input" type="search" placeholder="Recherche sur la page" autocomplete="off" />
+          <span id="page-search-status" class="page-search-status" aria-live="polite"></span>
+        </div>
+        <button id="page-search-btn" class="page-search-btn" type="button">Rechercher</button>
+      </div>
     </section>
     <section id="week-switcher-container"></section>
     <section id="movies-container" class="movies-container view-line">
       <p>Chargement...</p>
     </section>
   </main>
-  <script src="./app.js?v=filters2" defer></script>
+  <div id="info-modal-mount"></div>
+  <script src="./app.js?v=filters4" defer></script>
 </body>
 </html>
