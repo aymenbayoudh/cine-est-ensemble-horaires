@@ -1,4 +1,3 @@
-
 async function loadData() {
   const response = await fetch('./data/latest.json');
   if (!response.ok) {
@@ -38,10 +37,7 @@ const state = {
   data: null,
   selectedWeekId: null,
   view: 'line',
-  filters: {
-    cinemas: [],
-    dates: [],
-  },
+  filters: { cinemas: [], dates: [] },
   searchQuery: '',
 };
 
@@ -55,9 +51,7 @@ function escapeHtml(value) {
 }
 
 function normalizeData(data) {
-  if (data && Array.isArray(data.weeks) && data.weeks.length) {
-    return data.weeks;
-  }
+  if (data && Array.isArray(data.weeks) && data.weeks.length) return data.weeks;
   if (data && data.week && Array.isArray(data.movies)) {
     const firstDate = data.week.days && data.week.days[0] ? data.week.days[0].date : null;
     return [{
@@ -113,6 +107,30 @@ function getVisibleDays(daysConfig) {
   return todayIndex >= 0 ? daysConfig.slice(todayIndex) : daysConfig;
 }
 
+function titleCaseDayAbbrev(label) {
+  const base = String(label || '').trim();
+  if (!base) return '';
+  const lower = base.toLowerCase();
+  return lower.charAt(0).toUpperCase() + lower.slice(1);
+}
+
+function formatWeekRangeLabel(week) {
+  const days = week?.days || [];
+  if (days.length < 7) return week?.label || '';
+  const first = days[0];
+  const last = days[6];
+  const firstDate = getLocalDateFromIso(first.date);
+  const lastDate = getLocalDateFromIso(last.date);
+  if (!firstDate || !lastDate) return week?.label || '';
+  const firstDay = titleCaseDayAbbrev((first.label || '').split(' ')[0]);
+  const lastDay = titleCaseDayAbbrev((last.label || '').split(' ')[0]);
+  const firstDd = String(firstDate.getDate()).padStart(2, '0');
+  const firstMm = String(firstDate.getMonth() + 1).padStart(2, '0');
+  const lastDd = String(lastDate.getDate()).padStart(2, '0');
+  const lastMm = String(lastDate.getMonth() + 1).padStart(2, '0');
+  return `Semaine du ${firstDay} ${firstDd}/${firstMm} au ${lastDay} ${lastDd}/${lastMm}`;
+}
+
 function formatDisplayDate(day) {
   if (!day || !day.date) return day?.label || '';
   const date = getLocalDateFromIso(day.date);
@@ -124,7 +142,7 @@ function formatDisplayDate(day) {
   if (date.getTime() === today.getTime()) return "Aujourd'hui";
   if (date.getTime() === tomorrow.getTime()) return 'Demain';
 
-  const dayLabel = day.label ? day.label.split(' ')[0].trim() : '';
+  const dayLabel = titleCaseDayAbbrev(day.label ? day.label.split(' ')[0].trim() : '');
   const dd = String(date.getDate()).padStart(2, '0');
   const mm = String(date.getMonth() + 1).padStart(2, '0');
   return `${dayLabel} ${dd}/${mm}`;
@@ -158,11 +176,9 @@ function getBestTodayPriority(movie, week) {
   const days = week?.days || [];
   const todayIndex = getTodayIndex(days);
   if (todayIndex < 0) return { hasToday: false, cinemaRank: 999, timeRank: 9999 };
-
   const todayKey = days[todayIndex].key;
   const todayShows = getMovieDayItems(movie, todayKey);
   if (!todayShows.length) return { hasToday: false, cinemaRank: 999, timeRank: 9999 };
-
   let cinemaRank = 999;
   let timeRank = 9999;
   for (const show of todayShows) {
@@ -185,9 +201,7 @@ function movieMatchesFilters(movie, week) {
   const daysToInspect = selectedDates.length
     ? visibleDays.filter((day) => selectedDates.includes(day.key))
     : visibleDays;
-
   if (!daysToInspect.length) return false;
-
   for (const day of daysToInspect) {
     const items = getMovieDayItems(movie, day.key);
     if (!items.length) continue;
@@ -228,9 +242,9 @@ function renderWeekSwitcher(weeks, selectedId) {
   const options = weeks.map((entry) => {
     const value = entry.id || entry.week?.label || '';
     const selected = value === selectedId ? ' selected' : '';
-    return `<option value="${escapeHtml(value)}"${selected}>${escapeHtml(entry.week?.label || value)}</option>`;
+    const label = formatWeekRangeLabel(entry.week) || entry.week?.label || value;
+    return `<option value="${escapeHtml(value)}"${selected}>${escapeHtml(label)}</option>`;
   }).join('');
-
   return `
     <div class="week-switcher">
       <select id="week-select" class="week-select" aria-label="Choisir une semaine">
@@ -249,19 +263,12 @@ function getFilterSummaryHtml(week) {
   for (const cinemaKey of state.filters.cinemas) {
     pieces.push(renderFilterChip(CINEMA_LABELS[cinemaKey] || cinemaKey, `filter-chip--cinema filter-chip--${cinemaKey}`));
   }
-
   const visibleDays = getVisibleDays(week?.days || []);
   for (const dayKey of state.filters.dates) {
     const day = visibleDays.find((item) => item.key === dayKey) || (week?.days || []).find((item) => item.key === dayKey);
-    if (day) {
-      pieces.push(renderFilterChip(getDateFilterLabel(day), 'filter-chip--date'));
-    }
+    if (day) pieces.push(renderFilterChip(getDateFilterLabel(day), 'filter-chip--date'));
   }
-
-  if (!pieces.length) {
-    return '<span class="filter-summary-empty">Aucun filtre</span>';
-  }
-
+  if (!pieces.length) return '<span class="filter-summary-empty">Aucun filtre</span>';
   const resetButton = `<button id="filter-reset-inline-btn" class="filter-reset-inline-btn" type="button">Réinitialiser</button>`;
   return pieces.join('') + resetButton;
 }
@@ -303,11 +310,8 @@ function renderDateOption(day) {
 function renderFilterModal(week) {
   if (!week) return '';
   const visibleDays = getVisibleDays(week.days || []);
-  const cinemaOptions = ['montreuil', 'pantin', 'romainville', 'bagnolet', 'bobigny', 'bondy']
-    .map(renderCinemaOption)
-    .join('');
+  const cinemaOptions = ['montreuil', 'pantin', 'romainville', 'bagnolet', 'bobigny', 'bondy'].map(renderCinemaOption).join('');
   const dateOptions = visibleDays.map(renderDateOption).join('');
-
   return `
     <div id="filter-modal" class="filter-modal" aria-hidden="true">
       <div class="filter-modal__backdrop" data-filter-close="true"></div>
@@ -316,17 +320,14 @@ function renderFilterModal(week) {
           <h2 id="filter-title" class="filter-modal__title">Filtrer</h2>
           <button id="filter-close-btn" class="filter-modal__close" type="button" aria-label="Fermer">×</button>
         </div>
-
         <div class="filter-modal__section">
           <div class="filter-modal__subtitle">Cinémas</div>
           <div class="filter-options-row">${cinemaOptions}</div>
         </div>
-
         <div class="filter-modal__section">
           <div class="filter-modal__subtitle">Dates</div>
           <div class="filter-options-row">${dateOptions}</div>
         </div>
-
         <div class="filter-modal__actions">
           <button id="filter-reset-btn" class="filter-reset-btn" type="button">Réinitialiser</button>
           <button id="filter-apply-btn" class="filter-apply-btn" type="button">Valider</button>
@@ -340,7 +341,6 @@ function renderInfoModal() {
   const items = ['montreuil', 'pantin', 'romainville', 'bagnolet', 'bobigny', 'bondy']
     .map((key) => `<li><strong>${escapeHtml(CINEMA_LABELS[key])}</strong> : <a href="${escapeHtml(CINEMA_LINKS[key])}" target="_blank" rel="noopener noreferrer">${escapeHtml(CINEMA_LINKS[key])}</a></li>`)
     .join('');
-
   return `
     <div id="info-modal" class="info-modal" aria-hidden="true">
       <div class="filter-modal__backdrop" data-info-close="true"></div>
@@ -363,7 +363,6 @@ function renderSchedule(daysConfig, movieDays) {
   const tds = visibleDays.map((day) => {
     const items = movieDays?.[day.key] || [];
     if (!items.length) return '<td><span class="empty">-</span></td>';
-
     const html = items.map((item) => {
       const cinemaClass = getCinemaClass(item.cinema);
       const href = item.bookingUrl || '#';
@@ -376,7 +375,6 @@ function renderSchedule(daysConfig, movieDays) {
     }).join('');
     return `<td>${html}</td>`;
   }).join('');
-
   return `
     <div class="schedule-wrap">
       <table class="schedule">
@@ -400,7 +398,6 @@ function renderGridDayBlocks(daysConfig, movieDays) {
         </div>
       `;
     }
-
     const shows = items.map((item) => {
       const cinemaClass = getCinemaClass(item.cinema);
       const href = item.bookingUrl || '#';
@@ -411,7 +408,6 @@ function renderGridDayBlocks(daysConfig, movieDays) {
         </a>
       `;
     }).join('');
-
     return `
       <div class="grid-day-block">
         <div class="grid-day-title">${escapeHtml(label)}</div>
@@ -468,9 +464,7 @@ function renderGridMovie(movie, week, index) {
 
 function renderMovies(movies, week) {
   const visibleMovies = sortMoviesForWeek(movies || [], week);
-  if (!visibleMovies.length) {
-    return '<div class="empty">Aucun film ne correspond aux filtres sélectionnés.</div>';
-  }
+  if (!visibleMovies.length) return '<div class="empty">Aucun film ne correspond aux filtres sélectionnés.</div>';
   return visibleMovies.map((movie, index) => `${renderListMovie(movie, week, index)}${renderGridMovie(movie, week, index)}`).join('');
 }
 
@@ -554,18 +548,14 @@ function performPageSearch() {
   const input = document.getElementById('page-search-input');
   const status = document.getElementById('page-search-status');
   if (!input || !status) return;
-
   const query = input.value.trim().toLowerCase();
   state.searchQuery = input.value;
   status.textContent = '';
   input.classList.remove('is-error');
-
   if (!query) return;
-
   const selector = state.view === 'grid' ? '.movie-grid-card' : '.movie-list-card';
   const candidates = Array.from(document.querySelectorAll(selector));
   const match = candidates.find((node) => (node.dataset.searchText || '').includes(query));
-
   if (match) {
     match.scrollIntoView({ behavior: 'smooth', block: 'start' });
     match.classList.add('search-hit');
@@ -580,7 +570,6 @@ function setupSearchControls() {
   const input = document.getElementById('page-search-input');
   const button = document.getElementById('page-search-btn');
   if (!input || !button) return;
-
   input.value = state.searchQuery || '';
   input.onkeydown = (event) => {
     if (event.key === 'Enter') {
@@ -606,7 +595,6 @@ function setupControlEvents() {
   const filterResetInlineBtn = document.getElementById('filter-reset-inline-btn');
   const infoOpenBtn = document.getElementById('info-open-btn');
   const infoCloseBtn = document.getElementById('info-close-btn');
-
   if (weekSelect) {
     weekSelect.onchange = (event) => {
       state.selectedWeekId = event.target.value;
@@ -621,14 +609,8 @@ function setupControlEvents() {
   if (filterResetInlineBtn) filterResetInlineBtn.onclick = resetFilters;
   if (infoOpenBtn) infoOpenBtn.onclick = openInfoModal;
   if (infoCloseBtn) infoCloseBtn.onclick = closeInfoModal;
-
-  document.querySelectorAll('[data-filter-close="true"]').forEach((node) => {
-    node.onclick = closeFilterModal;
-  });
-  document.querySelectorAll('[data-info-close="true"]').forEach((node) => {
-    node.onclick = closeInfoModal;
-  });
-
+  document.querySelectorAll('[data-filter-close="true"]').forEach((node) => { node.onclick = closeFilterModal; });
+  document.querySelectorAll('[data-info-close="true"]').forEach((node) => { node.onclick = closeInfoModal; });
   document.onkeydown = (event) => {
     if (event.key === 'Escape') {
       closeFilterModal();
@@ -642,24 +624,20 @@ function renderApp() {
   const moviesContainer = document.getElementById('movies-container');
   const weeks = getCurrentWeeks();
   const selectedWeek = getSelectedWeek();
-
   if (!selectedWeek) {
     if (switcherContainer) switcherContainer.innerHTML = '';
     if (moviesContainer) moviesContainer.innerHTML = '<div class="empty">Aucune donnée disponible.</div>';
     return;
   }
-
   if (switcherContainer) {
     switcherContainer.innerHTML = `
       ${renderTopControls(weeks, selectedWeek.id || selectedWeek.week?.label, selectedWeek.week)}
       ${renderFilterModal(selectedWeek.week)}
     `;
   }
-
   if (moviesContainer) {
     moviesContainer.innerHTML = renderMovies(selectedWeek.movies || [], selectedWeek.week || {});
   }
-
   setupViewSwitch();
   setupControlEvents();
   setupSearchControls();
@@ -670,10 +648,7 @@ function renderApp() {
 async function main() {
   const moviesContainer = document.getElementById('movies-container');
   const infoModalMount = document.getElementById('info-modal-mount');
-  if (infoModalMount) {
-    infoModalMount.innerHTML = renderInfoModal();
-  }
-
+  if (infoModalMount) infoModalMount.innerHTML = renderInfoModal();
   try {
     state.data = await loadData();
     const weeks = getCurrentWeeks();
@@ -681,9 +656,7 @@ async function main() {
     renderApp();
   } catch (error) {
     console.error(error);
-    if (moviesContainer) {
-      moviesContainer.innerHTML = `<div class="empty">Erreur : ${escapeHtml(error.message)}</div>`;
-    }
+    if (moviesContainer) moviesContainer.innerHTML = `<div class="empty">Erreur : ${escapeHtml(error.message)}</div>`;
   }
 }
 

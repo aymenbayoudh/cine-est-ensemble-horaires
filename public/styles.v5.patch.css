@@ -1,0 +1,37 @@
+
+/* V5 patch: menu de semaine plus compact + recherche mobile + finitions dates */
+.week-switcher {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.week-select {
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
+  padding-right: 28px;
+}
+
+@media (max-width: 640px) {
+  .page-search {
+    gap: 8px;
+  }
+
+  .page-search-box {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .page-search-btn {
+    margin-top: 0;
+  }
+
+  .week-switcher {
+    width: 100%;
+  }
+
+  .week-select {
+    width: 100%;
+    min-width: 0;
+  }
+}
