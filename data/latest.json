@@ -1,4 +1,5 @@
 {
+  "generatedAt": "2026-03-28T10:10:29",
   "week": {
     "label": "Semaine du 25/03 au 31/03",
     "days": [
@@ -40,6 +41,30 @@
     ]
   },
   "movies": [
+    {
+      "title": "ALLAH N EST PAS OBLIGE",
+      "genre": "Animation",
+      "duration": "01h25",
+      "poster": "https://estensemble.cineoffice.fr/img/86/8662a518-924b-4949-acb7-e492de1eda68.jpg",
+      "infoUrl": "https://cinemalraux.fr/FR/fiche-film-cinema/M3018/allah-n-est-pas-oblige.html",
+      "trailerUrl": "",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [],
+        "mon": [
+          {
+            "time": "19h30",
+            "version": "VF",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3018?showId=54899"
+          }
+        ],
+        "tue": []
+      }
+    },
     {
       "title": "ALOUETTE JE TE PLUMERAI",
       "genre": "Comedie",
@@ -127,6 +152,37 @@
       }
     },
     {
+      "title": "BABE, LE COCHON DEVENU BERGER",
+      "genre": "",
+      "duration": "1h31",
+      "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff-babe.jpg",
+      "infoUrl": "https://www.cinematrianon.fr/films/item/7056-babe-le-cochon-devenu-berger",
+      "trailerUrl": "",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [
+          {
+            "time": "14h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3103?showId=56799"
+          }
+        ],
+        "sun": [
+          {
+            "time": "14h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3103?showId=56800"
+          }
+        ],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
       "title": "CE QU'IL RESTE DE NOUS",
       "genre": "Historique",
       "duration": "02h25",
@@ -161,6 +217,70 @@
             "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3009?showId=57896"
           }
         ]
+      }
+    },
+    {
+      "title": "CHERS PARENTS",
+      "genre": "d’Emmanuel Patron",
+      "duration": "1h26",
+      "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_3016.jpg",
+      "infoUrl": "https://www.cinematrianon.fr/films/item/7054-chers-parents",
+      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/87/8730473e-8933-41eb-abf2-6bb082b6c8aa.mp4",
+      "days": {
+        "wed": [
+          {
+            "time": "16h45",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": ""
+          },
+          {
+            "time": "20h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": ""
+          }
+        ],
+        "thu": [
+          {
+            "time": "16h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": ""
+          }
+        ],
+        "fri": [
+          {
+            "time": "12h00",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": ""
+          },
+          {
+            "time": "18h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": ""
+          }
+        ],
+        "sat": [
+          {
+            "time": "18h45",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3016?showId=56267"
+          }
+        ],
+        "sun": [],
+        "mon": [
+          {
+            "time": "16h00",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3016?showId=56275"
+          }
+        ],
+        "tue": []
       }
     },
     {
@@ -472,9 +592,29 @@
       "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M2984/julian.html",
       "trailerUrl": "https://www.youtube-nocookie.com/embed/6k5KGqBBajc?rel=0&autoplay=1&showInfo=0",
       "days": {
-        "wed": [],
-        "thu": [],
+        "wed": [
+          {
+            "time": "18h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": ""
+          }
+        ],
+        "thu": [
+          {
+            "time": "20h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": ""
+          }
+        ],
         "fri": [
+          {
+            "time": "16h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": ""
+          },
           {
             "time": "20h45",
             "version": "VF",
@@ -506,9 +646,21 @@
             "version": "VF",
             "cinema": "Montreuil",
             "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55912"
+          },
+          {
+            "time": "20h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2984?showId=56268"
           }
         ],
         "sun": [
+          {
+            "time": "12h15",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2984?showId=56270"
+          },
           {
             "time": "16h00",
             "version": "VF",
@@ -546,6 +698,12 @@
             "version": "VF",
             "cinema": "Montreuil",
             "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55960"
+          },
+          {
+            "time": "18h00",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2984?showId=56276"
           }
         ],
         "tue": [
@@ -554,6 +712,12 @@
             "version": "VF",
             "cinema": "Montreuil",
             "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55975"
+          },
+          {
+            "time": "16h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2984?showId=56280"
           },
           {
             "time": "20h15",
@@ -687,6 +851,30 @@
             "version": "VF",
             "cinema": "Montreuil",
             "bookingUrl": "https://montreuillemelies.cine.boutique/media/2884?showId=55803"
+          }
+        ],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "L’ODYSSÉE DE CHOUM",
+      "genre": "programme de courts métrages d’animation",
+      "duration": "38min",
+      "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_235.jpg",
+      "infoUrl": "https://www.cinematrianon.fr/films/item/7057-l-odyssee-de-choum",
+      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/59/59c42296-2317-4d0e-bcf2-06e4fca10128.mp4",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [
+          {
+            "time": "11h00",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/235?showId=56269"
           }
         ],
         "mon": [],
@@ -1448,6 +1636,113 @@
       }
     },
     {
+      "title": "LE MYSTÉRIEUX REGARD DU FLAMANT ROSE",
+      "genre": "",
+      "duration": "1h48",
+      "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_2973.jpg",
+      "infoUrl": "https://www.cinematrianon.fr/films/item/7055-le-mysterieux-regard-du-flamant-rose",
+      "trailerUrl": "",
+      "days": {
+        "wed": [],
+        "thu": [
+          {
+            "time": "18h15",
+            "version": "VO",
+            "cinema": "Romainville",
+            "bookingUrl": ""
+          }
+        ],
+        "fri": [
+          {
+            "time": "20h30",
+            "version": "VO",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2973?showId=56264"
+          }
+        ],
+        "sat": [
+          {
+            "time": "16h30",
+            "version": "VO",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2973?showId=56266"
+          }
+        ],
+        "sun": [],
+        "mon": [
+          {
+            "time": "20h00",
+            "version": "VO",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2973?showId=56277"
+          }
+        ],
+        "tue": []
+      }
+    },
+    {
+      "title": "LES ENFANTS DE LA RÉSISTANCE",
+      "genre": "",
+      "duration": "1h41",
+      "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_2982.jpg",
+      "infoUrl": "https://www.cinematrianon.fr/films/item/7020-les-enfants-de-la-resistance",
+      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/76/76115ce6-977b-4c79-aa36-08f7fcfd1ac6.mp4",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [],
+        "mon": [],
+        "tue": [
+          {
+            "time": "14h15",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2982?showId=56279"
+          }
+        ]
+      }
+    },
+    {
+      "title": "LES K D OR",
+      "genre": "Aventure",
+      "duration": "01h36",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/20/2078ab22-0d65-4eae-a35b-194c6e487bea.jpeg",
+      "infoUrl": "https://cinemalraux.fr/FR/fiche-film-cinema/M3099/les-k-d-or.html",
+      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/45/4549bf57-9bd7-49b2-9955-d01d5f813dc9.mp4",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [
+          {
+            "time": "20h35",
+            "version": "VF",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3099?showId=56458"
+          }
+        ],
+        "sat": [],
+        "sun": [
+          {
+            "time": "16h00",
+            "version": "VF",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3099?showId=56460"
+          }
+        ],
+        "mon": [
+          {
+            "time": "17h35",
+            "version": "VF",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3099?showId=56461"
+          }
+        ],
+        "tue": []
+      }
+    },
+    {
       "title": "LES RAYONS ET LES OMBRES",
       "genre": "Drame historique",
       "duration": "03h15",
@@ -1707,6 +2002,30 @@
           }
         ],
         "sun": [],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "MOHABBATEIN",
+      "genre": "",
+      "duration": "3h36",
+      "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff-mohabbatein.webp",
+      "infoUrl": "https://www.cinematrianon.fr/films/item/7058-mohabbatein",
+      "trailerUrl": "",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [
+          {
+            "time": "16h30",
+            "version": "VO",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3081?showId=56272"
+          }
+        ],
         "mon": [],
         "tue": []
       }
@@ -2010,6 +2329,30 @@
       }
     },
     {
+      "title": "RETOUR VERS LE FUTUR",
+      "genre": "",
+      "duration": "1h56",
+      "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_875.jpg",
+      "infoUrl": "https://www.cinematrianon.fr/films/item/7053-retour-vers-le-futur",
+      "trailerUrl": "",
+      "days": {
+        "wed": [
+          {
+            "time": "14h30",
+            "version": "VF",
+            "cinema": "Romainville",
+            "bookingUrl": ""
+          }
+        ],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
       "title": "ROMERIA",
       "genre": "Drame",
       "duration": "01h47",
@@ -2031,6 +2374,37 @@
           }
         ],
         "tue": []
+      }
+    },
+    {
+      "title": "RURAL",
+      "genre": "Documentaire",
+      "duration": "01h35",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/2e/2e11f837-579f-48fd-9827-7ddc63181433.jpeg",
+      "infoUrl": "https://cinemalraux.fr/FR/fiche-film-cinema/M2930/rural.html",
+      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/94/94a7751f-4f0a-4ea0-8e52-b46d3b14c583.mp4",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [],
+        "mon": [
+          {
+            "time": "15h45",
+            "version": "VF",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/2930?showId=54900"
+          }
+        ],
+        "tue": [
+          {
+            "time": "20h00",
+            "version": "VF",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/2930?showId=54798"
+          }
+        ]
       }
     },
     {
@@ -2112,6 +2486,78 @@
             "version": "VF",
             "cinema": "Bobigny",
             "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/2951?showId=57908"
+          }
+        ],
+        "sun": [],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "SOUNDTRACK TO A COUP D'ETAT",
+      "genre": "documentaire de Johan Grimonprez",
+      "duration": "2h30",
+      "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_2456.jpg",
+      "infoUrl": "https://www.cinematrianon.fr/films/item/7059-soundtrack-to-a-coup-d-etat",
+      "trailerUrl": "",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [],
+        "mon": [],
+        "tue": [
+          {
+            "time": "19h30",
+            "version": "VO",
+            "cinema": "Romainville",
+            "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2456?showId=56281"
+          }
+        ]
+      }
+    },
+    {
+      "title": "SUPER CHARLIE",
+      "genre": "Animation famille",
+      "duration": "01h22",
+      "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/b4/b416cd4e-801e-45d4-b299-d611bdb2f2a5.jpeg",
+      "infoUrl": "https://cinemalraux.fr/FR/fiche-film-cinema/M3029/super-charlie.html",
+      "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/99/9908deef-d411-4c96-80c9-8e52643aa1a2.mp4",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [],
+        "sun": [
+          {
+            "time": "14h00",
+            "version": "VF",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3029?showId=54897"
+          }
+        ],
+        "mon": [],
+        "tue": []
+      }
+    },
+    {
+      "title": "TERMINATOR",
+      "genre": "Action",
+      "duration": "01h47",
+      "poster": "https://estensemble.cineoffice.fr/img/9b/9b6bbf9c-2772-4c59-b8fb-2d289c8b7576.jpg",
+      "infoUrl": "https://cinemalraux.fr/FR/fiche-film-cinema/M3019/terminator.html",
+      "trailerUrl": "",
+      "days": {
+        "wed": [],
+        "thu": [],
+        "fri": [],
+        "sat": [
+          {
+            "time": "20h00",
+            "version": "VOST FR",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3019?showId=54696"
           }
         ],
         "sun": [],
@@ -2325,6 +2771,12 @@
         ],
         "sun": [
           {
+            "time": "18h00",
+            "version": "VF",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3008?showId=54928"
+          },
+          {
             "time": "20h15",
             "version": "VF",
             "cinema": "Montreuil",
@@ -2337,9 +2789,21 @@
             "version": "VF",
             "cinema": "Montreuil",
             "bookingUrl": "https://montreuillemelies.cine.boutique/media/3008?showId=55953"
+          },
+          {
+            "time": "14h00",
+            "version": "VF",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3008?showId=54895"
           }
         ],
         "tue": [
+          {
+            "time": "17h00",
+            "version": "VF",
+            "cinema": "Bondy",
+            "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3008?showId=54896"
+          },
           {
             "time": "17h50",
             "version": "VF",
@@ -2443,6 +2907,3273 @@
           }
         ]
       }
+    }
+  ],
+  "weeks": [
+    {
+      "id": "2026-03-25",
+      "week": {
+        "label": "Semaine du 25/03 au 31/03",
+        "days": [
+          {
+            "key": "wed",
+            "label": "MER. 25",
+            "date": "2026-03-25"
+          },
+          {
+            "key": "thu",
+            "label": "JEU. 26",
+            "date": "2026-03-26"
+          },
+          {
+            "key": "fri",
+            "label": "VEN. 27",
+            "date": "2026-03-27"
+          },
+          {
+            "key": "sat",
+            "label": "SAM. 28",
+            "date": "2026-03-28"
+          },
+          {
+            "key": "sun",
+            "label": "DIM. 29",
+            "date": "2026-03-29"
+          },
+          {
+            "key": "mon",
+            "label": "LUN. 30",
+            "date": "2026-03-30"
+          },
+          {
+            "key": "tue",
+            "label": "MAR. 31",
+            "date": "2026-03-31"
+          }
+        ]
+      },
+      "movies": [
+        {
+          "title": "ALLAH N EST PAS OBLIGE",
+          "genre": "Animation",
+          "duration": "01h25",
+          "poster": "https://estensemble.cineoffice.fr/img/86/8662a518-924b-4949-acb7-e492de1eda68.jpg",
+          "infoUrl": "https://cinemalraux.fr/FR/fiche-film-cinema/M3018/allah-n-est-pas-oblige.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [],
+            "mon": [
+              {
+                "time": "19h30",
+                "version": "VF",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3018?showId=54899"
+              }
+            ],
+            "tue": []
+          }
+        },
+        {
+          "title": "ALOUETTE JE TE PLUMERAI",
+          "genre": "Comedie",
+          "duration": "01h35",
+          "poster": "http://meliesmontreuil.fr/public/films/affiches/342_456/cds1p30670274d.jpg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M3067/alouette-je-te-plumerai.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "13h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3067?showId=55918"
+              }
+            ],
+            "sun": [
+              {
+                "time": "11h10",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3067?showId=55944"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "ASSASSINATION CLASSROOM THE MOVIE OUR TIME",
+          "genre": "Animation",
+          "duration": "01h20",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/e7/e7ed0e0a-840e-41c5-9f49-1447461e6861.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3146/assassination-classroom-the-movie-our-time.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/3e/3e232869-70a6-4c52-b1c3-53e5db6c2ed7.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "14h00",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3146?showId=57784"
+              }
+            ],
+            "sun": [
+              {
+                "time": "16h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3146?showId=57785"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "ATHENIAN MATERIAL",
+          "genre": "Documentaire",
+          "duration": "01h29",
+          "poster": "https://estensemble.cineoffice.fr/img/92/920e5a5b-8d61-4629-86d7-aa0f26a659bd.jpg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3134/athenian-material.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [
+              {
+                "time": "16h00",
+                "version": "VOST FR",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3134?showId=57513"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "BABE, LE COCHON DEVENU BERGER",
+          "genre": "",
+          "duration": "1h31",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff-babe.jpg",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7056-babe-le-cochon-devenu-berger",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3103?showId=56799"
+              }
+            ],
+            "sun": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3103?showId=56800"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "CE QU'IL RESTE DE NOUS",
+          "genre": "Historique",
+          "duration": "02h25",
+          "poster": "https://cinemedia2.cinedigitalmanager.com/medias//2/73/73a58400-5dba-437c-baff-623651066f5d.jpg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3009/ce-qu-il-reste-de-nous.html",
+          "trailerUrl": "https://player.allocine.fr/20634065.html",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [
+              {
+                "time": "17h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3009?showId=57892"
+              }
+            ],
+            "mon": [],
+            "tue": [
+              {
+                "time": "11h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3009?showId=56002"
+              },
+              {
+                "time": "16h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3009?showId=57896"
+              }
+            ]
+          }
+        },
+        {
+          "title": "CHERS PARENTS",
+          "genre": "d’Emmanuel Patron",
+          "duration": "1h26",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_3016.jpg",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7054-chers-parents",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/87/8730473e-8933-41eb-abf2-6bb082b6c8aa.mp4",
+          "days": {
+            "wed": [
+              {
+                "time": "16h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": ""
+              },
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": ""
+              }
+            ],
+            "thu": [
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": ""
+              }
+            ],
+            "fri": [
+              {
+                "time": "12h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": ""
+              },
+              {
+                "time": "18h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": ""
+              }
+            ],
+            "sat": [
+              {
+                "time": "18h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3016?showId=56267"
+              }
+            ],
+            "sun": [],
+            "mon": [
+              {
+                "time": "16h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3016?showId=56275"
+              }
+            ],
+            "tue": []
+          }
+        },
+        {
+          "title": "CHUNGKING EXPRESS",
+          "genre": "Drame",
+          "duration": "01h43",
+          "poster": "https://cine104.fr/public/films/affiches/342_456/cds6p197c8848.jpg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M197/chungking-express.html",
+          "trailerUrl": "https://www.youtube-nocookie.com/embed/8DY-HNI8iaQ?rel=0&autoplay=1&showInfo=0",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [
+              {
+                "time": "18h10",
+                "version": "VOST FR",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/197?showId=56999"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "DERRIERE LES DRAPEAUX LE SOLEIL",
+          "genre": "Documentaire",
+          "duration": "01h33",
+          "poster": "https://estensemble.cineoffice.fr/img/c5/c5efd7cb-0c00-4bfc-82b1-32d5fa407f5e.jpg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M2529/derriere-les-drapeaux-le-soleil.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "20h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2529?showId=55893"
+              }
+            ],
+            "sun": [
+              {
+                "time": "13h30",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2529?showId=55922"
+              }
+            ],
+            "mon": [
+              {
+                "time": "18h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2529?showId=55966"
+              }
+            ],
+            "tue": [
+              {
+                "time": "16h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2529?showId=55981"
+              }
+            ]
+          }
+        },
+        {
+          "title": "EDMOND ET LUCY LA FORET C EST L AVENTURE",
+          "genre": "Animation",
+          "duration": "00h45",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/72/72524f7d-dd2e-4f29-8b3d-1ce6285f8cc3.jpeg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3077/edmond-et-lucy-la-foret-c-est-l-aventure.html",
+          "trailerUrl": "https://player.allocine.fr/20634331.html",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "11h10",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3077?showId=55915"
+              },
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3077?showId=56916"
+              }
+            ],
+            "sun": [
+              {
+                "time": "11h20",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3077?showId=56915"
+              },
+              {
+                "time": "16h15",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3077?showId=55927"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "GOUROU",
+          "genre": "Drame",
+          "duration": "02h04",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/2a/2a2ed168-b4f3-44d7-8682-6c8382aa6a1d.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M2922/gourou.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/0c/0c0e4c5a-8b8d-4f14-8cc5-68a2b8795355.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/2922?showId=57909"
+              }
+            ],
+            "sun": [
+              {
+                "time": "18h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/2922?showId=57924"
+              }
+            ],
+            "mon": [
+              {
+                "time": "20h15",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/2922?showId=57910"
+              }
+            ],
+            "tue": [
+              {
+                "time": "17h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/2922?showId=57911"
+              }
+            ]
+          }
+        },
+        {
+          "title": "IL MAESTRO",
+          "genre": "Drame",
+          "duration": "02h05",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/00/00a2ed23-c172-4980-91e8-af88bb4c04c2.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3121/il-maestro.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/71/71dfa60b-69a8-42ab-9044-f317422bea17.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "16h45",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3121?showId=57868"
+              },
+              {
+                "time": "18h15",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3121?showId=57925"
+              }
+            ],
+            "sun": [
+              {
+                "time": "19h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3121?showId=57872"
+              }
+            ],
+            "mon": [
+              {
+                "time": "20h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3121?showId=57873"
+              }
+            ],
+            "tue": [
+              {
+                "time": "18h00",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3121?showId=57876"
+              }
+            ]
+          }
+        },
+        {
+          "title": "IN THE MOOD FOR LOVE",
+          "genre": "Drame",
+          "duration": "01h39",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/3b/3b09263c-d765-471f-993c-513291bc3ff6.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3141/in-the-mood-for-love.html",
+          "trailerUrl": "https://player.allocine.fr/19467187.html",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "17h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3141?showId=57906"
+              }
+            ],
+            "sun": [
+              {
+                "time": "14h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3141?showId=57936"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "IS THIS THING ON",
+          "genre": "Drame",
+          "duration": "02h00",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/2f/2f17b406-cd27-4089-9fb8-633cac8c278d.jpeg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M3046/is-this-thing-on.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/fe/fe606a00-b145-43d5-a847-6b8d1fab82f9.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "16h15",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3046?showId=55903"
+              }
+            ],
+            "sun": [
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3046?showId=55932"
+              }
+            ],
+            "mon": [],
+            "tue": [
+              {
+                "time": "11h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3046?showId=56001"
+              }
+            ]
+          }
+        },
+        {
+          "title": "IVAN LE TERRIBLE 2EME SERIE",
+          "genre": "Drame historique",
+          "duration": "01h26",
+          "poster": "http://meliesmontreuil.fr/public/films/affiches/342_456/cds1p3096f01a2.jpg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M3096/ivan-le-terrible-2eme-serie.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3096?showId=56390"
+              }
+            ],
+            "sat": [],
+            "sun": [],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "JULIAN",
+          "genre": "Drame",
+          "duration": "01h31",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/ed/ed4130af-65fe-438b-99b8-9014e8ac4463.jpeg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M2984/julian.html",
+          "trailerUrl": "https://www.youtube-nocookie.com/embed/6k5KGqBBajc?rel=0&autoplay=1&showInfo=0",
+          "days": {
+            "wed": [
+              {
+                "time": "18h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": ""
+              }
+            ],
+            "thu": [
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": ""
+              }
+            ],
+            "fri": [
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": ""
+              },
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55873"
+              }
+            ],
+            "sat": [
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55911"
+              },
+              {
+                "time": "16h05",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56955"
+              },
+              {
+                "time": "20h15",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56957"
+              },
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55912"
+              },
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2984?showId=56268"
+              }
+            ],
+            "sun": [
+              {
+                "time": "12h15",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2984?showId=56270"
+              },
+              {
+                "time": "16h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55946"
+              },
+              {
+                "time": "16h15",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56954"
+              },
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55935"
+              }
+            ],
+            "mon": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56952"
+              },
+              {
+                "time": "16h15",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56953"
+              },
+              {
+                "time": "17h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55960"
+              },
+              {
+                "time": "18h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2984?showId=56276"
+              }
+            ],
+            "tue": [
+              {
+                "time": "13h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55975"
+              },
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2984?showId=56280"
+              },
+              {
+                "time": "20h15",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2984?showId=55991"
+              },
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/2984?showId=56950"
+              }
+            ]
+          }
+        },
+        {
+          "title": "JUMPERS",
+          "genre": "Animation",
+          "duration": "01h45",
+          "poster": "https://cine104.fr/public/films/affiches/342_456/cds6p3006682c3.jpg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3006/jumpers.html",
+          "trailerUrl": "https://www.youtube-nocookie.com/embed/K2tl-7DCb8o?rel=0&autoplay=1&showInfo=0",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "11h00",
+                "version": "VF OCAP",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3006?showId=55914"
+              },
+              {
+                "time": "13h30",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3006?showId=55895"
+              },
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3006?showId=56911"
+              },
+              {
+                "time": "15h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3006?showId=55909"
+              },
+              {
+                "time": "16h15",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3006?showId=56912"
+              }
+            ],
+            "sun": [
+              {
+                "time": "11h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3006?showId=55942"
+              },
+              {
+                "time": "11h00",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3006?showId=56913"
+              },
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3006?showId=55940"
+              },
+              {
+                "time": "14h20",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3006?showId=56914"
+              },
+              {
+                "time": "15h35",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3006?showId=55924"
+              }
+            ],
+            "mon": [],
+            "tue": [
+              {
+                "time": "18h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3006?showId=56003"
+              }
+            ]
+          }
+        },
+        {
+          "title": "L ODYSSEE DE CELESTE",
+          "genre": "Animation",
+          "duration": "01h26",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/d2/d264a8ca-53e7-4e76-a28a-e8eb596d404f.jpeg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M2884/l-odyssee-de-celeste.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "16h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2884?showId=55892"
+              }
+            ],
+            "sun": [
+              {
+                "time": "11h10",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2884?showId=55943"
+              },
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2884?showId=55803"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "L’ODYSSÉE DE CHOUM",
+          "genre": "programme de courts métrages d’animation",
+          "duration": "38min",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_235.jpg",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7057-l-odyssee-de-choum",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/59/59c42296-2317-4d0e-bcf2-06e4fca10128.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [
+              {
+                "time": "11h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/235?showId=56269"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "LA COULEUVRE NOIRE",
+          "genre": "Drame",
+          "duration": "01h25",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/44/44d2559e-ff5a-4128-b472-97c3f67c107b.jpeg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3069/la-couleuvre-noire.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/3c/3c54ca35-0a1f-44f4-9640-14d10e29d089.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56938"
+              }
+            ],
+            "sat": [
+              {
+                "time": "14h15",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56939"
+              },
+              {
+                "time": "18h25",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56940"
+              }
+            ],
+            "sun": [
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56941"
+              }
+            ],
+            "mon": [
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56944"
+              },
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56945"
+              }
+            ],
+            "tue": [
+              {
+                "time": "18h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56947"
+              },
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3069?showId=56946"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LA DANSE DES RENARDS",
+          "genre": "Drame",
+          "duration": "01h32",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/95/9519442b-459c-4b69-933e-c0fe1f2ea4bb.jpeg",
+          "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M2418/la-danse-des-renards.html",
+          "trailerUrl": "https://www.youtube-nocookie.com/embed/cGuT95ffWA4?rel=0&autoplay=1&showInfo=0",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2418?showId=56558"
+              }
+            ],
+            "sat": [
+              {
+                "time": "11h10",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2418?showId=55913"
+              },
+              {
+                "time": "14h15",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2418?showId=56568"
+              },
+              {
+                "time": "18h45",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2418?showId=56566"
+              },
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2418?showId=55901"
+              }
+            ],
+            "sun": [
+              {
+                "time": "15h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2418?showId=55948"
+              },
+              {
+                "time": "17h30",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2418?showId=56582"
+              },
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2418?showId=55930"
+              }
+            ],
+            "mon": [
+              {
+                "time": "11h00",
+                "version": "VOST FR OCAP",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2418?showId=55961"
+              }
+            ],
+            "tue": [
+              {
+                "time": "16h15",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2418?showId=55993"
+              },
+              {
+                "time": "18h15",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2418?showId=55994"
+              },
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2418?showId=56585"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LA GIFLE",
+          "genre": "Comédie",
+          "duration": "01h28",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/4c/4cf75a5b-9ad5-4f09-9016-302c23fddf4f.jpeg",
+          "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M3068/la-gifle.html",
+          "trailerUrl": "https://www.youtube-nocookie.com/embed/8LipN8PLr14?rel=0&autoplay=1&showInfo=0",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "15h15",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3068?showId=56564"
+              },
+              {
+                "time": "18h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3068?showId=55897"
+              },
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3068?showId=56572"
+              }
+            ],
+            "sun": [
+              {
+                "time": "11h10",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3068?showId=55951"
+              },
+              {
+                "time": "18h55",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3068?showId=55926"
+              },
+              {
+                "time": "19h30",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3068?showId=56573"
+              }
+            ],
+            "mon": [
+              {
+                "time": "11h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3068?showId=55965"
+              },
+              {
+                "time": "18h15",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3068?showId=55964"
+              }
+            ],
+            "tue": [
+              {
+                "time": "18h15",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3068?showId=57774"
+              },
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3068?showId=55998"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LA GUERRE DES PRIX",
+          "genre": "Thriller",
+          "duration": "01h36",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/8a/8ad98ba1-43d4-4f34-8e3d-8fb598d5a518.jpeg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3049/la-guerre-des-prix.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/6a/6a3cd9de-3a17-4d31-8641-df7018e16ecf.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h15",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3049?showId=57829"
+              },
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56922"
+              }
+            ],
+            "sat": [
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3049?showId=57833"
+              },
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56924"
+              },
+              {
+                "time": "18h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3049?showId=55910"
+              },
+              {
+                "time": "18h15",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3049?showId=57834"
+              },
+              {
+                "time": "18h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56923"
+              },
+              {
+                "time": "20h15",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3049?showId=55899"
+              }
+            ],
+            "sun": [
+              {
+                "time": "11h10",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56925"
+              },
+              {
+                "time": "13h30",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3049?showId=55941"
+              },
+              {
+                "time": "14h10",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56926"
+              },
+              {
+                "time": "16h15",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3049?showId=57837"
+              },
+              {
+                "time": "17h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3049?showId=55928"
+              },
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3049?showId=57838"
+              }
+            ],
+            "mon": [
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3049?showId=57842"
+              },
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56927"
+              },
+              {
+                "time": "16h45",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56928"
+              },
+              {
+                "time": "18h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3049?showId=55954"
+              },
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3049?showId=57841"
+              },
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3049?showId=55955"
+              }
+            ],
+            "tue": [
+              {
+                "time": "12h00",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3049?showId=57843"
+              },
+              {
+                "time": "16h10",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3049?showId=55989"
+              },
+              {
+                "time": "18h00",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3049?showId=57844"
+              },
+              {
+                "time": "18h15",
+                "version": "VF OCAP",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3049?showId=55987"
+              },
+              {
+                "time": "18h15",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3049?showId=56929"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LA MAISON DES FEMMES",
+          "genre": "Drame",
+          "duration": "01h50",
+          "poster": "https://cinemedia2.cinedigitalmanager.com/medias//2/2b/2b64d00e-d016-46c2-bf8d-409bdf0a21b7.jpg",
+          "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M3007/la-maison-des-femmes.html",
+          "trailerUrl": "https://www.youtube-nocookie.com/embed/yAwvKg9T47Q?rel=0&autoplay=1&showInfo=0",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h15",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3007?showId=56980"
+              }
+            ],
+            "sat": [
+              {
+                "time": "11h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3007?showId=55916"
+              },
+              {
+                "time": "17h45",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3007?showId=56983"
+              },
+              {
+                "time": "18h30",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3007?showId=56391"
+              },
+              {
+                "time": "19h45",
+                "version": "VF OCAP",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3007?showId=57852"
+              },
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3007?showId=56567"
+              }
+            ],
+            "sun": [
+              {
+                "time": "13h45",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3007?showId=56578"
+              },
+              {
+                "time": "13h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3007?showId=55957"
+              },
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3007?showId=57740"
+              },
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3007?showId=56988"
+              }
+            ],
+            "mon": [
+              {
+                "time": "14h15",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3007?showId=56990"
+              },
+              {
+                "time": "18h00",
+                "version": "VF OCAP",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3007?showId=57926"
+              },
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3007?showId=55958"
+              }
+            ],
+            "tue": [
+              {
+                "time": "12h00",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3007?showId=57782"
+              },
+              {
+                "time": "15h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3007?showId=55992"
+              },
+              {
+                "time": "16h00",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3007?showId=56583"
+              },
+              {
+                "time": "18h15",
+                "version": "VF OCAP",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3007?showId=56584"
+              },
+              {
+                "time": "20h15",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3007?showId=57783"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LA RIVIERE",
+          "genre": "Documentaire",
+          "duration": "01h46",
+          "poster": "http://meliesmontreuil.fr/public/films/affiches/342_456/cds1p25d3136.jpg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M25/la-riviere.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/b6/b66b58e3-eb76-40b2-83df-b4dea084d28f.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [
+              {
+                "time": "16h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/25?showId=55804"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "LA TRAQUE DE MERAL",
+          "genre": "Drame",
+          "duration": "01h31",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/bb/bb148ac3-9da2-47c5-b8f0-56eb56c88b64.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3149/la-traque-de-meral.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/3d/3da2e5b2-41b5-416b-b6e4-535f95ba519d.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "14h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3149?showId=57905"
+              }
+            ],
+            "sun": [],
+            "mon": [
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3149?showId=57895"
+              }
+            ],
+            "tue": [
+              {
+                "time": "12h00",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3149?showId=57882"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LAS CORRIENTES",
+          "genre": "Drame",
+          "duration": "01h40",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/97/979de486-aa75-42d4-9f4d-c6c123b803f3.jpeg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M3072/las-corrientes.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3072?showId=55883"
+              }
+            ],
+            "sat": [
+              {
+                "time": "11h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3072?showId=55896"
+              }
+            ],
+            "sun": [
+              {
+                "time": "18h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3072?showId=55938"
+              }
+            ],
+            "mon": [
+              {
+                "time": "11h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3072?showId=55968"
+              }
+            ],
+            "tue": [
+              {
+                "time": "13h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3072?showId=55974"
+              },
+              {
+                "time": "18h30",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3072?showId=55999"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LE CRI DES GARDES",
+          "genre": "Drame",
+          "duration": "01h58",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/7d/7dc7a93d-f8b8-477d-bcac-60d4c5db3fa1.jpeg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M3078/le-cri-des-gardes.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [],
+            "mon": [],
+            "tue": [
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3078?showId=55807"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LE CRIME DU 3EME ETAGE",
+          "genre": "Comédie dramatique",
+          "duration": "01h44",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/ef/efac726b-ea02-4561-91cc-c623a7cd3eb0.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3084/le-crime-du-3eme-etage.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/25/25f4e2e5-3dff-4265-9e29-affda683d0fa.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3084?showId=57866"
+              },
+              {
+                "time": "19h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3084?showId=57867"
+              }
+            ],
+            "sun": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3084?showId=57870"
+              },
+              {
+                "time": "16h55",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3084?showId=57871"
+              }
+            ],
+            "mon": [
+              {
+                "time": "18h00",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3084?showId=57874"
+              }
+            ],
+            "tue": [
+              {
+                "time": "15h45",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3084?showId=57927"
+              },
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3084?showId=57875"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LE MYSTÉRIEUX REGARD DU FLAMANT ROSE",
+          "genre": "",
+          "duration": "1h48",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_2973.jpg",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7055-le-mysterieux-regard-du-flamant-rose",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [
+              {
+                "time": "18h15",
+                "version": "VO",
+                "cinema": "Romainville",
+                "bookingUrl": ""
+              }
+            ],
+            "fri": [
+              {
+                "time": "20h30",
+                "version": "VO",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2973?showId=56264"
+              }
+            ],
+            "sat": [
+              {
+                "time": "16h30",
+                "version": "VO",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2973?showId=56266"
+              }
+            ],
+            "sun": [],
+            "mon": [
+              {
+                "time": "20h00",
+                "version": "VO",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2973?showId=56277"
+              }
+            ],
+            "tue": []
+          }
+        },
+        {
+          "title": "LES ENFANTS DE LA RÉSISTANCE",
+          "genre": "",
+          "duration": "1h41",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_2982.jpg",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7020-les-enfants-de-la-resistance",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/76/76115ce6-977b-4c79-aa36-08f7fcfd1ac6.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [],
+            "mon": [],
+            "tue": [
+              {
+                "time": "14h15",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2982?showId=56279"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LES K D OR",
+          "genre": "Aventure",
+          "duration": "01h36",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/20/2078ab22-0d65-4eae-a35b-194c6e487bea.jpeg",
+          "infoUrl": "https://cinemalraux.fr/FR/fiche-film-cinema/M3099/les-k-d-or.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/45/4549bf57-9bd7-49b2-9955-d01d5f813dc9.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h35",
+                "version": "VF",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3099?showId=56458"
+              }
+            ],
+            "sat": [],
+            "sun": [
+              {
+                "time": "16h00",
+                "version": "VF",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3099?showId=56460"
+              }
+            ],
+            "mon": [
+              {
+                "time": "17h35",
+                "version": "VF",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3099?showId=56461"
+              }
+            ],
+            "tue": []
+          }
+        },
+        {
+          "title": "LES RAYONS ET LES OMBRES",
+          "genre": "Drame historique",
+          "duration": "03h15",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/4f/4f714a90-856b-44e5-8450-7a9cd2db7640.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3026/les-rayons-et-les-ombres.html",
+          "trailerUrl": "https://player.allocine.fr/20633880.html",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "19h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3026?showId=55861"
+              }
+            ],
+            "sat": [
+              {
+                "time": "13h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3026?showId=56005"
+              },
+              {
+                "time": "15h45",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3026?showId=57789"
+              },
+              {
+                "time": "19h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3026?showId=57791"
+              },
+              {
+                "time": "19h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3026?showId=55904"
+              }
+            ],
+            "sun": [
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3026?showId=57792"
+              },
+              {
+                "time": "16h15",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3026?showId=55920"
+              },
+              {
+                "time": "19h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3026?showId=57794"
+              },
+              {
+                "time": "19h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3026?showId=55933"
+              }
+            ],
+            "mon": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3026?showId=57802"
+              },
+              {
+                "time": "18h15",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3026?showId=57803"
+              },
+              {
+                "time": "19h45",
+                "version": "VF OCAP",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3026?showId=55952"
+              }
+            ],
+            "tue": [
+              {
+                "time": "15h45",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3026?showId=57804"
+              },
+              {
+                "time": "19h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3026?showId=57805"
+              },
+              {
+                "time": "19h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3026?showId=55986"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LOVE ON TRIAL",
+          "genre": "Drame",
+          "duration": "02h03",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/ff/ff47d2e9-254c-4951-898a-a17f9e79f279.jpeg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M2876/love-on-trial.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/b3/b3b85b9a-064e-4645-8c42-50d3ff9d7261.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2876?showId=55872"
+              }
+            ],
+            "sat": [
+              {
+                "time": "13h30",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2876?showId=55890"
+              },
+              {
+                "time": "18h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2876?showId=55906"
+              }
+            ],
+            "sun": [
+              {
+                "time": "11h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2876?showId=55947"
+              },
+              {
+                "time": "18h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2876?showId=55936"
+              }
+            ],
+            "mon": [
+              {
+                "time": "13h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2876?showId=56004"
+              },
+              {
+                "time": "17h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2876?showId=55956"
+              }
+            ],
+            "tue": [
+              {
+                "time": "11h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2876?showId=55995"
+              },
+              {
+                "time": "20h15",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2876?showId=55990"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LUPIN THE III THE MOVIE LA LIGNEE IMMORTELLE",
+          "genre": "Action",
+          "duration": "01h32",
+          "poster": "https://estensemble.cineoffice.fr/img/57/57958c09-c4a7-42ea-8cf9-053a8ed20142.jpg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M2961/lupin-the-iii-the-movie-la-lignee-immortelle.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "18h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2961?showId=55876"
+              }
+            ],
+            "sat": [
+              {
+                "time": "18h30",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2961?showId=55852"
+              }
+            ],
+            "sun": [
+              {
+                "time": "13h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2961?showId=56007"
+              }
+            ],
+            "mon": [
+              {
+                "time": "18h15",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2961?showId=56379"
+              }
+            ],
+            "tue": [
+              {
+                "time": "18h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2961?showId=55997"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LUPIN THE IIIRD OAV JIGEN ET ZENIGATA",
+          "genre": "Animation",
+          "duration": "01h45",
+          "poster": "https://estensemble.cineoffice.fr/img/3c/3c0f3bd2-200f-44a1-84dd-906a5867c8ef.jpg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M3062/lupin-the-iiird-oav-jigen-et-zenigata.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "16h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3062?showId=55851"
+              }
+            ],
+            "sun": [],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "MOHABBATEIN",
+          "genre": "",
+          "duration": "3h36",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff-mohabbatein.webp",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7058-mohabbatein",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [
+              {
+                "time": "16h30",
+                "version": "VO",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3081?showId=56272"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "MON JARDIN MERVEILLEUX",
+          "genre": "null",
+          "duration": "00h25",
+          "poster": "https://estensemble.cineoffice.fr/img/53/53adb5c4-4087-4fac-afad-4ac7a792e914.jpg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3158/mon-jardin-merveilleux.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3158?showId=57932"
+              }
+            ],
+            "sun": [
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3158?showId=57935"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "MUNICIPALE",
+          "genre": "Docu fiction",
+          "duration": "01h50",
+          "poster": "https://estensemble.cineoffice.fr/img/10/103d9351-f1cb-42fa-9326-659be74534a5.jpg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3133/municipale.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [
+              {
+                "time": "18h30",
+                "version": "VF",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3133?showId=57512"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "ORPHELIN",
+          "genre": "Drame",
+          "duration": "02h12",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/87/872ed685-a7f4-48a8-9b8e-1f80e5009cd1.jpeg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3039/orphelin.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/55/559a36f2-c146-4e28-9601-31e533b5cee9.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "15h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3039?showId=55902"
+              },
+              {
+                "time": "20h00",
+                "version": "VOST FR",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3039?showId=56933"
+              }
+            ],
+            "sun": [
+              {
+                "time": "20h15",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3039?showId=55931"
+              }
+            ],
+            "mon": [
+              {
+                "time": "20h00",
+                "version": "VOST FR",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3039?showId=56932"
+              }
+            ],
+            "tue": [
+              {
+                "time": "15h50",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3039?showId=56000"
+              },
+              {
+                "time": "18h00",
+                "version": "VOST FR",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3039?showId=56930"
+              },
+              {
+                "time": "20h15",
+                "version": "VOST FR",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3039?showId=56931"
+              }
+            ]
+          }
+        },
+        {
+          "title": "ORWELL 2 PLUS 2 EGAL 5",
+          "genre": "Documentaire",
+          "duration": "01h59",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/67/67b4c82f-ea3d-4b84-a87f-604342246fe5.jpeg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M2832/orwell-2-plus-2-egal-5.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [],
+            "mon": [],
+            "tue": [
+              {
+                "time": "20h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2832?showId=56009"
+              }
+            ]
+          }
+        },
+        {
+          "title": "PILLION",
+          "genre": "Comédie",
+          "duration": "01h46",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/48/48eabf68-202d-4098-8eb0-1284aa42818e.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3031/pillion.html",
+          "trailerUrl": "https://player.allocine.fr/20627418.html",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3031?showId=57890"
+              }
+            ],
+            "sat": [],
+            "sun": [
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3031?showId=57904"
+              }
+            ],
+            "mon": [
+              {
+                "time": "18h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3031?showId=57894"
+              }
+            ],
+            "tue": [
+              {
+                "time": "19h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3031?showId=57897"
+              }
+            ]
+          }
+        },
+        {
+          "title": "PLANETES",
+          "genre": "Animation",
+          "duration": "01h16",
+          "poster": "https://estensemble.cineoffice.fr/img/be/bed66f36-4af3-4407-bdb5-6168e582da65.jpg",
+          "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M2985/planetes.html",
+          "trailerUrl": "https://www.youtube-nocookie.com/embed/Y4ucI60lK_M?rel=0&autoplay=1&showInfo=0",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "13h45",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2985?showId=56563"
+              },
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/2985?showId=57790"
+              },
+              {
+                "time": "17h00",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2985?showId=56565"
+              }
+            ],
+            "sun": [
+              {
+                "time": "16h00",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/2985?showId=56581"
+              },
+              {
+                "time": "17h45",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/2985?showId=57793"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "PRECIEUSES",
+          "genre": "Documentaire",
+          "duration": "01h18",
+          "poster": "http://meliesmontreuil.fr/public/films/affiches/342_456/cds1p228511a6f.jpg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M2285/precieuses.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "11h10",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2285?showId=56008"
+              }
+            ],
+            "sun": [],
+            "mon": [
+              {
+                "time": "20h30",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2285?showId=55967"
+              }
+            ],
+            "tue": [
+              {
+                "time": "16h00",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/2285?showId=56392"
+              }
+            ]
+          }
+        },
+        {
+          "title": "RESSOURCES HUMAINES",
+          "genre": "comédie dramatique",
+          "duration": "01h45",
+          "poster": "https://cinhoche.fr/public/films/affiches/342_456/cds8p3100279be.jpg",
+          "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M3100/ressources-humaines.html",
+          "trailerUrl": "https://player.allocine.fr/19436948.html",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [
+              {
+                "time": "16h00",
+                "version": "VF",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3100?showId=56580"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "RETOUR VERS LE FUTUR",
+          "genre": "",
+          "duration": "1h56",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_875.jpg",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7053-retour-vers-le-futur",
+          "trailerUrl": "",
+          "days": {
+            "wed": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": ""
+              }
+            ],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "ROMERIA",
+          "genre": "Drame",
+          "duration": "01h47",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/c4/c4badc78-bc4a-4d6a-beaa-8096ca38b8e0.jpeg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M3079/romeria.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [],
+            "mon": [
+              {
+                "time": "20h15",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3079?showId=55806"
+              }
+            ],
+            "tue": []
+          }
+        },
+        {
+          "title": "RURAL",
+          "genre": "Documentaire",
+          "duration": "01h35",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/2e/2e11f837-579f-48fd-9827-7ddc63181433.jpeg",
+          "infoUrl": "https://cinemalraux.fr/FR/fiche-film-cinema/M2930/rural.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/94/94a7751f-4f0a-4ea0-8e52-b46d3b14c583.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [],
+            "mon": [
+              {
+                "time": "15h45",
+                "version": "VF",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/2930?showId=54900"
+              }
+            ],
+            "tue": [
+              {
+                "time": "20h00",
+                "version": "VF",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/2930?showId=54798"
+              }
+            ]
+          }
+        },
+        {
+          "title": "SCREAM 7",
+          "genre": "Horreur",
+          "duration": "01h54",
+          "poster": "https://cinemedia2.cinedigitalmanager.com/medias//1/74/74fa1cf9-edb9-4277-b576-65fc2d71011b.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3010/scream-7.html",
+          "trailerUrl": "https://player.allocine.fr/20628997.html",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h15",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3010?showId=57914"
+              }
+            ],
+            "sat": [],
+            "sun": [],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "SEND HELP",
+          "genre": "Aventure",
+          "duration": "01h53",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/0f/0f2a3749-5126-4ccb-824e-60c28c428f25.jpeg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3065/send-help.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/8b/8b3a6e8d-c729-425d-8e51-6519c5fc8bed.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3065?showId=55437"
+              }
+            ],
+            "sun": [
+              {
+                "time": "18h45",
+                "version": "VOST FR",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3065?showId=56996"
+              }
+            ],
+            "mon": [
+              {
+                "time": "20h15",
+                "version": "VOST FR",
+                "cinema": "Pantin",
+                "bookingUrl": "https://pantincine104.cine.boutique/media/3065?showId=56993"
+              }
+            ],
+            "tue": []
+          }
+        },
+        {
+          "title": "SOULEVEMENTS",
+          "genre": "Documentaire",
+          "duration": "01h45",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/8a/8a497e53-846c-4b2b-88c3-a8eda8983d1b.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M2951/soulevements.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/df/df992b24-fe5a-4b01-8c1e-132bcc42ccd3.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "19h45",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/2951?showId=57908"
+              }
+            ],
+            "sun": [],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "SOUNDTRACK TO A COUP D'ETAT",
+          "genre": "documentaire de Johan Grimonprez",
+          "duration": "2h30",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_2456.jpg",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7059-soundtrack-to-a-coup-d-etat",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [],
+            "mon": [],
+            "tue": [
+              {
+                "time": "19h30",
+                "version": "VO",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/2456?showId=56281"
+              }
+            ]
+          }
+        },
+        {
+          "title": "SUPER CHARLIE",
+          "genre": "Animation famille",
+          "duration": "01h22",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/b4/b416cd4e-801e-45d4-b299-d611bdb2f2a5.jpeg",
+          "infoUrl": "https://cinemalraux.fr/FR/fiche-film-cinema/M3029/super-charlie.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/99/9908deef-d411-4c96-80c9-8e52643aa1a2.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3029?showId=54897"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "TERMINATOR",
+          "genre": "Action",
+          "duration": "01h47",
+          "poster": "https://estensemble.cineoffice.fr/img/9b/9b6bbf9c-2772-4c59-b8fb-2d289c8b7576.jpg",
+          "infoUrl": "https://cinemalraux.fr/FR/fiche-film-cinema/M3019/terminator.html",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "20h00",
+                "version": "VOST FR",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3019?showId=54696"
+              }
+            ],
+            "sun": [],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "UN JOUR AVEC MON PERE",
+          "genre": "Drame",
+          "duration": "01h45",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/47/471f29b0-85b8-4481-b636-08113d9689d9.jpeg",
+          "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M3074/un-jour-avec-mon-pere.html",
+          "trailerUrl": "https://www.youtube-nocookie.com/embed/Sopé Dìrísù, Chibuike Marvellous Egbo, Godwin Egbo?rel=0&autoplay=1&showInfo=0",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=56559"
+              }
+            ],
+            "sat": [
+              {
+                "time": "14h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3074?showId=55894"
+              },
+              {
+                "time": "16h15",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=56570"
+              },
+              {
+                "time": "16h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3074?showId=57831"
+              },
+              {
+                "time": "18h15",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=56571"
+              },
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3074?showId=57832"
+              },
+              {
+                "time": "20h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3074?showId=55907"
+              }
+            ],
+            "sun": [
+              {
+                "time": "11h00",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3074?showId=55923"
+              },
+              {
+                "time": "14h00",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=56574"
+              },
+              {
+                "time": "14h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3074?showId=57835"
+              },
+              {
+                "time": "18h15",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3074?showId=55937"
+              },
+              {
+                "time": "18h30",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=56575"
+              },
+              {
+                "time": "18h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3074?showId=57836"
+              }
+            ],
+            "mon": [
+              {
+                "time": "13h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3074?showId=55963"
+              },
+              {
+                "time": "14h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3074?showId=57839"
+              },
+              {
+                "time": "18h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3074?showId=57840"
+              },
+              {
+                "time": "20h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3074?showId=55962"
+              }
+            ],
+            "tue": [
+              {
+                "time": "13h45",
+                "version": "VOST FR",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3074?showId=55973"
+              },
+              {
+                "time": "16h00",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=57773"
+              },
+              {
+                "time": "16h00",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3074?showId=57845"
+              },
+              {
+                "time": "20h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3074?showId=57846"
+              },
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Bagnolet",
+                "bookingUrl": "https://bagnoletcinhoche.cine.boutique/media/3074?showId=57775"
+              }
+            ]
+          }
+        },
+        {
+          "title": "UNE BATAILLE APRES L'AUTRE",
+          "genre": "Action",
+          "duration": "02h42",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/11/119fa864-455a-486d-be1c-b62edad0956d.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M2442/une-bataille-apres-l-autre.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/6e/6e59fa75-69d1-4293-8622-933ef68020bb.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [],
+            "mon": [],
+            "tue": [
+              {
+                "time": "20h00",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/2442?showId=57915"
+              }
+            ]
+          }
+        },
+        {
+          "title": "VICTOR COMME TOUT LE MONDE",
+          "genre": "Comédie dramatique",
+          "duration": "01h28",
+          "poster": "https://cinemedia2.cinedigitalmanager.com/medias//1/29/299ee6d5-aa37-4c09-9f97-058756b3dd10.jpeg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M3008/victor-comme-tout-le-monde.html",
+          "trailerUrl": "https://player.allocine.fr/20631110.html",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h15",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3008?showId=55863"
+              }
+            ],
+            "sat": [
+              {
+                "time": "17h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3008?showId=55905"
+              }
+            ],
+            "sun": [
+              {
+                "time": "18h00",
+                "version": "VF",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3008?showId=54928"
+              },
+              {
+                "time": "20h15",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3008?showId=55934"
+              }
+            ],
+            "mon": [
+              {
+                "time": "13h45",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3008?showId=55953"
+              },
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3008?showId=54895"
+              }
+            ],
+            "tue": [
+              {
+                "time": "17h00",
+                "version": "VF",
+                "cinema": "Bondy",
+                "bookingUrl": "https://bondyandremalraux.cine.boutique/media/3008?showId=54896"
+              },
+              {
+                "time": "17h50",
+                "version": "VF",
+                "cinema": "Montreuil",
+                "bookingUrl": "https://montreuillemelies.cine.boutique/media/3008?showId=55977"
+              }
+            ]
+          }
+        },
+        {
+          "title": "WALTER LAPIN",
+          "genre": "Animation",
+          "duration": "01h24",
+          "poster": "https://cinemedia.cinedigitalmanager.com/medias//1/8f/8fe8f5c8-94e3-4c90-a53a-0591697cf018.jpeg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3130/walter-lapin.html",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/38/38f30092-44fd-4ef6-8ea6-4561138d5df1.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "14h15",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3130?showId=57900"
+              },
+              {
+                "time": "16h15",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3130?showId=57901"
+              }
+            ],
+            "sun": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3130?showId=57902"
+              },
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3130?showId=57903"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "YOUTH",
+          "genre": "null",
+          "duration": "02h20",
+          "poster": "https://estensemble.cineoffice.fr/img/1e/1eb10f7b-15d6-492e-8831-bc978c708357.jpg",
+          "infoUrl": "https://cine-aliceguy.fr/FR/fiche-film-cinema/M3147/youth.html",
+          "trailerUrl": "https://player.allocine.fr/20634925.html",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3147?showId=57850"
+              }
+            ],
+            "sat": [
+              {
+                "time": "16h30",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3147?showId=57851"
+              }
+            ],
+            "sun": [
+              {
+                "time": "18h45",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3147?showId=57853"
+              }
+            ],
+            "mon": [
+              {
+                "time": "20h15",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3147?showId=57854"
+              }
+            ],
+            "tue": [
+              {
+                "time": "17h10",
+                "version": "VOST FR",
+                "cinema": "Bobigny",
+                "bookingUrl": "https://bobignyaliceguy.cine.boutique/media/3147?showId=57855"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2026-04-01",
+      "week": {
+        "label": "Semaine du 01/04 au 07/04",
+        "days": [
+          {
+            "key": "wed",
+            "label": "MER. 01",
+            "date": "2026-04-01"
+          },
+          {
+            "key": "thu",
+            "label": "JEU. 02",
+            "date": "2026-04-02"
+          },
+          {
+            "key": "fri",
+            "label": "VEN. 03",
+            "date": "2026-04-03"
+          },
+          {
+            "key": "sat",
+            "label": "SAM. 04",
+            "date": "2026-04-04"
+          },
+          {
+            "key": "sun",
+            "label": "DIM. 05",
+            "date": "2026-04-05"
+          },
+          {
+            "key": "mon",
+            "label": "LUN. 06",
+            "date": "2026-04-06"
+          },
+          {
+            "key": "tue",
+            "label": "MAR. 07",
+            "date": "2026-04-07"
+          }
+        ]
+      },
+      "movies": [
+        {
+          "title": "ALTER EGO",
+          "genre": "",
+          "duration": "1h44",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_3001.jpg",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7065-alter-ego",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/70/70905443-4bee-47da-a992-4abf41912eeb.mp4",
+          "days": {
+            "wed": [
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3001?showId=56285"
+              }
+            ],
+            "thu": [],
+            "fri": [
+              {
+                "time": "12h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3001?showId=56292"
+              }
+            ],
+            "sat": [
+              {
+                "time": "14h15",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3001?showId=56296"
+              }
+            ],
+            "sun": [
+              {
+                "time": "16h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3001?showId=56304"
+              }
+            ],
+            "mon": [],
+            "tue": [
+              {
+                "time": "21h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3001?showId=56313"
+              }
+            ]
+          }
+        },
+        {
+          "title": "JUMPERS",
+          "genre": "Animation",
+          "duration": "01h45",
+          "poster": "https://cine104.fr/public/films/affiches/342_456/cds6p3006682c3.jpg",
+          "infoUrl": "https://cine104.fr/FR/fiche-film-cinema/M3006/jumpers.html",
+          "trailerUrl": "https://www.youtube-nocookie.com/embed/K2tl-7DCb8o?rel=0&autoplay=1&showInfo=0",
+          "days": {
+            "wed": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3006?showId=56282"
+              }
+            ],
+            "thu": [],
+            "fri": [],
+            "sat": [
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3006?showId=56297"
+              }
+            ],
+            "sun": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3006?showId=56303"
+              }
+            ],
+            "mon": [
+              {
+                "time": "14h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3006?showId=56306"
+              }
+            ],
+            "tue": []
+          }
+        },
+        {
+          "title": "LA MAISON DES FEMMES",
+          "genre": "Drame",
+          "duration": "01h50",
+          "poster": "https://cinemedia2.cinedigitalmanager.com/medias//2/2b/2b64d00e-d016-46c2-bf8d-409bdf0a21b7.jpg",
+          "infoUrl": "https://cinhoche.fr/FR/fiche-film-cinema/M3007/la-maison-des-femmes.html",
+          "trailerUrl": "https://www.youtube-nocookie.com/embed/yAwvKg9T47Q?rel=0&autoplay=1&showInfo=0",
+          "days": {
+            "wed": [],
+            "thu": [
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3007?showId=56288"
+              }
+            ],
+            "fri": [
+              {
+                "time": "18h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3007?showId=56295"
+              }
+            ],
+            "sat": [
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3007?showId=56299"
+              }
+            ],
+            "sun": [
+              {
+                "time": "19h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3007?showId=56305"
+              }
+            ],
+            "mon": [
+              {
+                "time": "16h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3007?showId=56307"
+              }
+            ],
+            "tue": [
+              {
+                "time": "14h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3007?showId=56311"
+              }
+            ]
+          }
+        },
+        {
+          "title": "LE GRAND JOUR DU LIÈVRE",
+          "genre": "Animation | programme de courts métrages d’animation de Dace Rīdūze et Māris Brinkmanis",
+          "duration": "34min",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_3082.jpg",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7063-le-grand-jour-du-lievre",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/85/85334ec0-b314-45a6-b39e-3dcc8b8dbc00.mp4",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [],
+            "sat": [],
+            "sun": [
+              {
+                "time": "11h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3082?showId=56301"
+              }
+            ],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "NINO DANS LA NUIT",
+          "genre": "",
+          "duration": "1h56",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff_3083.jpg",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7064-nino-dans-la-nuit",
+          "trailerUrl": "https://cinemedia.cinedigitalmanager.com/medias//1/48/4832a8a5-4fe6-4023-af85-dcf5ba726ab0.mp4",
+          "days": {
+            "wed": [
+              {
+                "time": "18h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3083?showId=56284"
+              }
+            ],
+            "thu": [
+              {
+                "time": "18h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3083?showId=56289"
+              }
+            ],
+            "fri": [
+              {
+                "time": "16h15",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3083?showId=56294"
+              }
+            ],
+            "sat": [],
+            "sun": [],
+            "mon": [
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3083?showId=56308"
+              }
+            ],
+            "tue": [
+              {
+                "time": "16h30",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3083?showId=56909"
+              }
+            ]
+          }
+        },
+        {
+          "title": "PLIER, REPLIER ET DÉPLIER",
+          "genre": "programme de courts métrages de danse",
+          "duration": "1h",
+          "poster": "https://www.cinematrianon.fr/images/affiche-film/m_aff-plier.webp",
+          "infoUrl": "https://www.cinematrianon.fr/films/item/7084-plier-replier-et-deplier",
+          "trailerUrl": "",
+          "days": {
+            "wed": [],
+            "thu": [],
+            "fri": [
+              {
+                "time": "20h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3143?showId=57727"
+              }
+            ],
+            "sat": [],
+            "sun": [],
+            "mon": [],
+            "tue": []
+          }
+        },
+        {
+          "title": "VICTOR COMME TOUT LE MONDE",
+          "genre": "Comédie dramatique",
+          "duration": "01h28",
+          "poster": "https://cinemedia2.cinedigitalmanager.com/medias//1/29/299ee6d5-aa37-4c09-9f97-058756b3dd10.jpeg",
+          "infoUrl": "http://meliesmontreuil.fr/FR/fiche-film-cinema/M3008/victor-comme-tout-le-monde.html",
+          "trailerUrl": "https://player.allocine.fr/20631110.html",
+          "days": {
+            "wed": [
+              {
+                "time": "16h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3008?showId=56283"
+              }
+            ],
+            "thu": [
+              {
+                "time": "21h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3008?showId=56290"
+              }
+            ],
+            "fri": [],
+            "sat": [
+              {
+                "time": "18h45",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3008?showId=56298"
+              }
+            ],
+            "sun": [
+              {
+                "time": "12h15",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3008?showId=56302"
+              }
+            ],
+            "mon": [
+              {
+                "time": "19h00",
+                "version": "VF",
+                "cinema": "Romainville",
+                "bookingUrl": "https://romainvilleletrianon.cine.boutique/media/3008?showId=56309"
+              }
+            ],
+            "tue": []
+          }
+        }
+      ]
     }
   ]
 }
