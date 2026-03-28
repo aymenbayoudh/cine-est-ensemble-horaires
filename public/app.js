@@ -15,12 +15,18 @@ const CINEMA_LINKS = {
   bondy: 'https://cinemalraux.fr/FR/43/horaires-cinema-andre-malraux-bondy.html',
 };
 const FILTER_CINEMA_KEYS = ['montreuil', 'pantin', 'romainville', 'bagnolet', 'bobigny', 'bondy'];
+const TIME_DOMAIN = { min: 8 * 60, max: 24 * 60 - 5, sliderStep: 5, histogramStep: 30 };
 
 const state = {
   data: null,
   selectedWeekId: null,
   view: 'line',
-  filters: { cinemas: [], dates: [] },
+  filters: {
+    cinemas: [],
+    dates: [],
+    timeStartMin: TIME_DOMAIN.min,
+    timeStartMax: TIME_DOMAIN.max,
+  },
   searchQuery: '',
 };
 
@@ -29,7 +35,7 @@ function escapeHtml(value) {
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
+    .replace(/\"/g, '&quot;')
     .replace(/'/g, '&#039;');
 }
 
@@ -58,18 +64,15 @@ function getSelectedWeek() {
   const weeks = getCurrentWeeks();
   return weeks.find((entry) => (entry.id || entry.week?.label) === state.selectedWeekId) || weeks[0] || null;
 }
-
 function getLocalDateFromIso(dateStr) {
   if (!dateStr) return null;
   const d = new Date(`${dateStr}T00:00:00`);
   return new Date(d.getFullYear(), d.getMonth(), d.getDate());
 }
-
 function getTodayDate() {
   const now = new Date();
   return new Date(now.getFullYear(), now.getMonth(), now.getDate());
 }
-
 function getTodayIndex(daysConfig) {
   const today = getTodayDate();
   return (daysConfig || []).findIndex((day) => {
@@ -77,17 +80,14 @@ function getTodayIndex(daysConfig) {
     return !!target && target.getTime() === today.getTime();
   });
 }
-
 function getVisibleDays(daysConfig) {
   const todayIndex = getTodayIndex(daysConfig || []);
   return todayIndex >= 0 ? (daysConfig || []).slice(todayIndex) : (daysConfig || []);
 }
-
 function titleCaseDayAbbrev(label) {
   const base = String(label || '').trim().toLowerCase();
   return base ? base.charAt(0).toUpperCase() + base.slice(1) : '';
 }
-
 function formatDisplayDate(day) {
   if (!day || !day.date) return day?.label || '';
   const date = getLocalDateFromIso(day.date);
@@ -102,10 +102,8 @@ function formatDisplayDate(day) {
   const mm = String(date.getMonth() + 1).padStart(2, '0');
   return `${dayLabel} ${dd}/${mm}`;
 }
-
 function getDateFilterLabel(day) { return formatDisplayDate(day); }
 function getRelativeDayLabel(day) { return formatDisplayDate(day); }
-
 function formatWeekRangeLabel(week) {
   const days = week?.days || [];
   if (days.length < 7) return week?.label || '';
@@ -116,20 +114,39 @@ function formatWeekRangeLabel(week) {
   if (!firstDate || !lastDate) return week?.label || '';
   const f = titleCaseDayAbbrev((first.label || '').split(' ')[0]);
   const l = titleCaseDayAbbrev((last.label || '').split(' ')[0]);
-  const fdd = String(firstDate.getDate()).padStart(2, '0');
-  const fmm = String(firstDate.getMonth() + 1).padStart(2, '0');
-  const ldd = String(lastDate.getDate()).padStart(2, '0');
-  const lmm = String(lastDate.getMonth() + 1).padStart(2, '0');
-  return `Semaine du ${f} ${fdd}/${fmm} au ${l} ${ldd}/${lmm}`;
+  return `Semaine du ${f} ${String(firstDate.getDate()).padStart(2, '0')}/${String(firstDate.getMonth() + 1).padStart(2, '0')} au ${l} ${String(lastDate.getDate()).padStart(2, '0')}/${String(lastDate.getMonth() + 1).padStart(2, '0')}`;
 }
-
 function timeToMinutes(timeStr) {
   const match = /^(\d{1,2})h(\d{2})$/.exec(String(timeStr || ''));
-  return match ? Number(match[1]) * 60 + Number(match[2]) : 9999;
+  return match ? Number(match[1]) * 60 + Number(match[2]) : null;
 }
-
+function minutesToTimeValue(minutes) {
+  const clamped = Math.max(0, Math.min(minutes, 24 * 60 - 1));
+  const hh = String(Math.floor(clamped / 60)).padStart(2, '0');
+  const mm = String(clamped % 60).padStart(2, '0');
+  return `${hh}:${mm}`;
+}
+function minutesToLabel(minutes) {
+  return minutesToTimeValue(minutes).replace(':', 'h');
+}
+function parseTimeInput(value) {
+  const match = /^(\d{2}):(\d{2})$/.exec(String(value || ''));
+  if (!match) return null;
+  return Number(match[1]) * 60 + Number(match[2]);
+}
+function clampTimeFilters() {
+  let min = Number(state.filters.timeStartMin ?? TIME_DOMAIN.min);
+  let max = Number(state.filters.timeStartMax ?? TIME_DOMAIN.max);
+  min = Math.max(TIME_DOMAIN.min, Math.min(min, TIME_DOMAIN.max));
+  max = Math.max(TIME_DOMAIN.min, Math.min(max, TIME_DOMAIN.max));
+  if (min > max) {
+    if (Math.abs(min - state.filters.timeStartMin) < Math.abs(max - state.filters.timeStartMax)) max = min;
+    else min = max;
+  }
+  state.filters.timeStartMin = min;
+  state.filters.timeStartMax = max;
+}
 function getMovieDayItems(movie, key) { return movie?.days?.[key] || []; }
-
 function getBestLeadDayPriority(movie, week) {
   const visibleDays = getVisibleDays(week?.days || []);
   const leadDay = visibleDays[0];
@@ -140,31 +157,45 @@ function getBestLeadDayPriority(movie, week) {
   let timeRank = 9999;
   for (const show of leadShows) {
     const cinemaClass = getCinemaClass(show.cinema);
+    const start = timeToMinutes(show.time);
     cinemaRank = Math.min(cinemaRank, CINEMA_PRIORITY[cinemaClass] ?? 999);
-    timeRank = Math.min(timeRank, timeToMinutes(show.time));
+    timeRank = Math.min(timeRank, start ?? 9999);
   }
   return { hasLeadDay: true, cinemaRank, timeRank };
 }
-
 function hasVisibleShow(movie, week) {
   return getVisibleDays(week?.days || []).some((day) => getMovieDayItems(movie, day.key).length > 0);
 }
-
+function itemMatchesCinema(item) {
+  return !state.filters.cinemas.length || state.filters.cinemas.includes(getCinemaClass(item.cinema));
+}
+function dayMatchesDate(dayKey) {
+  return !state.filters.dates.length || state.filters.dates.includes(dayKey);
+}
+function itemMatchesTime(item) {
+  const start = timeToMinutes(item.time);
+  if (start == null) return false;
+  return start >= state.filters.timeStartMin && start <= state.filters.timeStartMax;
+}
+function itemMatchesAllFilters(item, dayKey) {
+  return dayMatchesDate(dayKey) && itemMatchesCinema(item) && itemMatchesTime(item);
+}
 function movieMatchesFilters(movie, week) {
-  const selectedCinemas = state.filters.cinemas;
-  const selectedDates = state.filters.dates;
   const visibleDays = getVisibleDays(week?.days || []);
-  const daysToInspect = selectedDates.length ? visibleDays.filter((day) => selectedDates.includes(day.key)) : visibleDays;
-  if (!daysToInspect.length) return false;
-  for (const day of daysToInspect) {
+  for (const day of visibleDays) {
     const items = getMovieDayItems(movie, day.key);
-    if (!items.length) continue;
-    if (!selectedCinemas.length) return true;
-    if (items.some((item) => selectedCinemas.includes(getCinemaClass(item.cinema)))) return true;
+    if (items.some((item) => itemMatchesAllFilters(item, day.key))) return true;
   }
   return false;
 }
-
+function movieMatchesNonTimeFilters(movie, week) {
+  const visibleDays = getVisibleDays(week?.days || []);
+  for (const day of visibleDays) {
+    const items = getMovieDayItems(movie, day.key);
+    if (items.some((item) => dayMatchesDate(day.key) && itemMatchesCinema(item))) return true;
+  }
+  return false;
+}
 function sortMoviesForWeek(movies, week) {
   const query = (state.searchQuery || '').trim().toLowerCase();
   return (movies || []).slice()
@@ -174,7 +205,6 @@ function sortMoviesForWeek(movies, week) {
       const aMatch = query && String(a?.title || '').toLowerCase().includes(query);
       const bMatch = query && String(b?.title || '').toLowerCase().includes(query);
       if (aMatch !== bMatch) return aMatch ? -1 : 1;
-
       const aPriority = getBestLeadDayPriority(a, week);
       const bPriority = getBestLeadDayPriority(b, week);
       if (aPriority.hasLeadDay !== bPriority.hasLeadDay) return aPriority.hasLeadDay ? -1 : 1;
@@ -185,14 +215,37 @@ function sortMoviesForWeek(movies, week) {
       return String(a?.title || '').localeCompare(String(b?.title || ''), 'fr', { sensitivity: 'base' });
     });
 }
-
+function getTimeHistogram(week) {
+  const bins = [];
+  for (let start = TIME_DOMAIN.min; start < 24 * 60; start += TIME_DOMAIN.histogramStep) {
+    bins.push({ start, end: Math.min(start + TIME_DOMAIN.histogramStep, 24 * 60), count: 0 });
+  }
+  const movies = (week?.movies || []).filter((movie) => movieMatchesNonTimeFilters(movie, week));
+  const visibleDays = getVisibleDays(week?.days || []);
+  for (const movie of movies) {
+    for (const day of visibleDays) {
+      if (!dayMatchesDate(day.key)) continue;
+      const items = getMovieDayItems(movie, day.key).filter((item) => itemMatchesCinema(item));
+      for (const item of items) {
+        const start = timeToMinutes(item.time);
+        if (start == null || start < TIME_DOMAIN.min || start >= 24 * 60) continue;
+        const idx = Math.floor((start - TIME_DOMAIN.min) / TIME_DOMAIN.histogramStep);
+        if (bins[idx]) bins[idx].count += 1;
+      }
+    }
+  }
+  const maxCount = Math.max(1, ...bins.map((b) => b.count));
+  return bins.map((bin) => ({
+    ...bin,
+    height: Math.max(4, Math.round((bin.count / maxCount) * 40)),
+  }));
+}
 function renderShowContent(item, mode) {
   const timeClass = mode === 'grid' ? 'grid-show-time' : 'schedule-time';
   const subClass = mode === 'grid' ? 'grid-show-sub' : 'schedule-sub';
   const version = item.version ? ` · ${escapeHtml(item.version)}` : '';
   return `<span class="${timeClass}">${escapeHtml(item.time)}</span><span class="${subClass}">${escapeHtml(item.cinema)}${version}</span>`;
 }
-
 function renderWeekSwitcher(weeks, selectedId) {
   if (!weeks.length) return '';
   const options = weeks.map((entry) => {
@@ -203,49 +256,47 @@ function renderWeekSwitcher(weeks, selectedId) {
   }).join('');
   return `<div class="week-switcher"><select id="week-select" class="week-select" aria-label="Choisir une semaine">${options}</select></div>`;
 }
-
 function renderFilterToggleChip(label, classes, type, value, isActive) {
   const stateClass = isActive ? 'is-active' : 'is-inactive';
   const pressed = isActive ? 'true' : 'false';
   return `<button type="button" class="filter-chip filter-chip-toggle ${classes} ${stateClass}" data-filter-type="${type}" data-filter-value="${escapeHtml(value)}" aria-pressed="${pressed}">${escapeHtml(label)}</button>`;
 }
-
+function renderTimeFilterPanel(week) {
+  clampTimeFilters();
+  const histogram = getTimeHistogram(week);
+  const leftPct = ((state.filters.timeStartMin - TIME_DOMAIN.min) / (TIME_DOMAIN.max - TIME_DOMAIN.min)) * 100;
+  const rightPct = ((state.filters.timeStartMax - TIME_DOMAIN.min) / (TIME_DOMAIN.max - TIME_DOMAIN.min)) * 100;
+  const bars = histogram.map((bin) => `<div class="time-filter-bar" style="height:${bin.height}px" title="${escapeHtml(minutesToLabel(bin.start))}–${escapeHtml(minutesToLabel(bin.end))} · ${bin.count} séance(s)"></div>`).join('');
+  return `
+    <section class="time-filter-panel" aria-labelledby="time-filter-title">
+      <div class="time-filter-header">
+        <h2 id="time-filter-title" class="time-filter-title">Heure de début</h2>
+        <div class="time-filter-inputs time-filter-inputs--header">
+          <label class="time-filter-input-group">Min<input id="time-input-min" type="time" step="300" value="${minutesToTimeValue(state.filters.timeStartMin)}"></label>
+          <label class="time-filter-input-group">Max<input id="time-input-max" type="time" step="300" value="${minutesToTimeValue(state.filters.timeStartMax)}"></label>
+        </div>
+      </div>
+      <div class="time-filter-chart-wrap">
+        <div class="time-filter-chart">${bars}</div>
+        <div class="time-filter-selection" id="time-filter-selection" style="left:${leftPct}%; right:${100 - rightPct}%;"></div>
+        <input id="time-range-min" class="time-range-input time-range-input--min" type="range" min="${TIME_DOMAIN.min}" max="${TIME_DOMAIN.max}" step="${TIME_DOMAIN.sliderStep}" value="${state.filters.timeStartMin}" aria-label="Heure minimale de début">
+        <input id="time-range-max" class="time-range-input time-range-input--max" type="range" min="${TIME_DOMAIN.min}" max="${TIME_DOMAIN.max}" step="${TIME_DOMAIN.sliderStep}" value="${state.filters.timeStartMax}" aria-label="Heure maximale de début">
+      </div>
+    </section>`;
+}
 function renderFilterControls(week) {
   const visibleDays = getVisibleDays(week?.days || []);
-  const cinemaChips = FILTER_CINEMA_KEYS.map((cinemaKey) =>
-    renderFilterToggleChip(
-      CINEMA_LABELS[cinemaKey] || cinemaKey,
-      `filter-chip--cinema filter-chip--${cinemaKey}`,
-      'cinema',
-      cinemaKey,
-      state.filters.cinemas.includes(cinemaKey)
-    )
-  ).join('');
-
-  const dateChips = visibleDays.map((day) =>
-    renderFilterToggleChip(
-      getDateFilterLabel(day),
-      'filter-chip--date',
-      'date',
-      day.key,
-      state.filters.dates.includes(day.key)
-    )
-  ).join('');
-
+  const cinemaChips = FILTER_CINEMA_KEYS.map((cinemaKey) => renderFilterToggleChip(CINEMA_LABELS[cinemaKey] || cinemaKey, `filter-chip--cinema filter-chip--${cinemaKey}`, 'cinema', cinemaKey, state.filters.cinemas.includes(cinemaKey))).join('');
+  const dateChips = visibleDays.map((day) => renderFilterToggleChip(getDateFilterLabel(day), 'filter-chip--date', 'date', day.key, state.filters.dates.includes(day.key))).join('');
   return `${cinemaChips}${dateChips}<button id="filter-reset-inline-btn" class="filter-reset-inline-btn" type="button">Réinitialiser</button>`;
 }
-
 function renderTopControls(weeks, selectedId, week) {
-  return `<div class="top-controls">${renderWeekSwitcher(weeks, selectedId)}<div class="filter-bar"><div class="filter-summary" id="filter-summary">${renderFilterControls(week)}</div></div></div>`;
+  return `<div class="top-controls">${renderWeekSwitcher(weeks, selectedId)}${renderTimeFilterPanel(week)}<div class="filter-bar"><div class="filter-summary" id="filter-summary">${renderFilterControls(week)}</div></div></div>`;
 }
-
 function renderInfoModal() {
-  const items = FILTER_CINEMA_KEYS
-    .map((key) => `<li><strong>${escapeHtml(CINEMA_LABELS[key])}</strong> : <a href="${escapeHtml(CINEMA_LINKS[key])}" target="_blank" rel="noopener noreferrer">${escapeHtml(CINEMA_LINKS[key])}</a></li>`)
-    .join('');
+  const items = FILTER_CINEMA_KEYS.map((key) => `<li><strong>${escapeHtml(CINEMA_LABELS[key])}</strong> : <a href="${escapeHtml(CINEMA_LINKS[key])}" target="_blank" rel="noopener noreferrer">${escapeHtml(CINEMA_LINKS[key])}</a></li>`).join('');
   return `<div id="info-modal" class="info-modal" aria-hidden="true"><div class="filter-modal__backdrop" data-info-close="true"></div><div class="filter-modal__panel info-modal__panel" role="dialog" aria-modal="true" aria-labelledby="info-title"><div class="filter-modal__header"><h2 id="info-title" class="filter-modal__title">Liens vers sites des cinémas</h2><button id="info-close-btn" class="filter-modal__close" type="button" aria-label="Fermer">×</button></div><div class="info-modal__content"><ul class="info-links-list">${items}</ul></div></div></div>`;
 }
-
 function renderSchedule(daysConfig, movieDays) {
   const visibleDays = getVisibleDays(daysConfig || []);
   const ths = visibleDays.map((day) => `<th>${escapeHtml(day.label)}</th>`).join('');
@@ -256,13 +307,13 @@ function renderSchedule(daysConfig, movieDays) {
       const cinemaClass = getCinemaClass(item.cinema);
       const href = item.bookingUrl || '#';
       const target = item.bookingUrl ? ' target="_blank" rel="noopener noreferrer"' : '';
-      return `<a class="schedule-item schedule-item--${cinemaClass}" href="${escapeHtml(href)}"${target}>${renderShowContent(item, 'schedule')}</a>`;
+      const dimmed = itemMatchesAllFilters(item, day.key) ? '' : ' is-dimmed';
+      return `<a class="schedule-item schedule-item--${cinemaClass}${dimmed}" href="${escapeHtml(href)}"${target}>${renderShowContent(item, 'schedule')}</a>`;
     }).join('');
     return `<td>${html}</td>`;
   }).join('');
   return `<div class="schedule-wrap"><table class="schedule"><tr>${ths}</tr><tr>${tds}</tr></table></div>`;
 }
-
 function renderGridDayBlocks(daysConfig, movieDays) {
   const visibleDays = getVisibleDays(daysConfig || []);
   return visibleDays.map((day) => {
@@ -273,34 +324,25 @@ function renderGridDayBlocks(daysConfig, movieDays) {
       const cinemaClass = getCinemaClass(item.cinema);
       const href = item.bookingUrl || '#';
       const target = item.bookingUrl ? ' target="_blank" rel="noopener noreferrer"' : '';
-      return `<a class="grid-show grid-show--${cinemaClass}" href="${escapeHtml(href)}"${target}>${renderShowContent(item, 'grid')}</a>`;
+      const dimmed = itemMatchesAllFilters(item, day.key) ? '' : ' is-dimmed';
+      return `<a class="grid-show grid-show--${cinemaClass}${dimmed}" href="${escapeHtml(href)}"${target}>${renderShowContent(item, 'grid')}</a>`;
     }).join('');
     return `<div class="grid-day-block"><div class="grid-day-title">${escapeHtml(label)}</div>${shows}</div>`;
   }).join('');
 }
-
-function renderInfoButton(url, extraClass = 'btn') {
-  return url ? `<a class="${extraClass}" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Infos et bande-annonce</a>` : '';
-}
-
-function renderPoster(url, title, className = '') {
-  return url ? `<img class="${className}" src="${escapeHtml(url)}" alt="Affiche ${escapeHtml(title)}">` : '';
-}
-
+function renderInfoButton(url, extraClass = 'btn') { return url ? `<a class="${extraClass}" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Infos et bande-annonce</a>` : ''; }
+function renderPoster(url, title, className = '') { return url ? `<img class="${className}" src="${escapeHtml(url)}" alt="Affiche ${escapeHtml(title)}">` : ''; }
 function renderListMovie(movie, week, index) {
   return `<article class="movie-list-card" data-movie-index="${index}"><div class="poster-wrap">${movie.infoUrl ? `<a href="${escapeHtml(movie.infoUrl)}" target="_blank" rel="noopener noreferrer">${renderPoster(movie.poster, movie.title)}</a>` : renderPoster(movie.poster, movie.title)}</div><div class="movie-content"><h3 class="movie-title">${escapeHtml(movie.title)}</h3><div class="movie-meta">${escapeHtml(movie.genre || '')}${movie.genre && movie.duration ? ' · ' : ''}${escapeHtml(movie.duration || '')}</div><div class="movie-links">${renderInfoButton(movie.infoUrl)}</div>${renderSchedule(week.days || [], movie.days || {})}</div></article>`;
 }
-
 function renderGridMovie(movie, week, index) {
   return `<article class="movie-grid-card" data-movie-index="${index}">${renderPoster(movie.poster, movie.title, 'movie-grid-poster')}<div class="movie-grid-overlay"><div class="movie-grid-title">${escapeHtml(movie.title)}</div><div class="movie-grid-meta">${escapeHtml(movie.genre || '')}${movie.genre && movie.duration ? ' · ' : ''}${escapeHtml(movie.duration || '')}</div><div class="movie-grid-actions">${renderInfoButton(movie.infoUrl, 'grid-btn')}</div><div class="grid-scroll">${renderGridDayBlocks(week.days || [], movie.days || {})}</div></div></article>`;
 }
-
 function renderMovies(movies, week) {
   const visibleMovies = sortMoviesForWeek(movies || [], week);
   if (!visibleMovies.length) return '<div class="empty">Aucun film ne correspond aux filtres sélectionnés.</div>';
   return visibleMovies.map((movie, index) => `${renderListMovie(movie, week, index)}${renderGridMovie(movie, week, index)}`).join('');
 }
-
 function setView(view) {
   state.view = view;
   const container = document.getElementById('movies-container');
@@ -312,7 +354,6 @@ function setView(view) {
   btnLine.classList.toggle('is-active', view === 'line');
   btnGrid.classList.toggle('is-active', view === 'grid');
 }
-
 function setupViewSwitch() {
   const btnLine = document.getElementById('view-line');
   const btnGrid = document.getElementById('view-grid');
@@ -321,7 +362,6 @@ function setupViewSwitch() {
   btnGrid.onclick = () => setView('grid');
   setView(state.view);
 }
-
 function setupGridCardTouchBehavior() {
   document.querySelectorAll('.movie-grid-card').forEach((card) => {
     card.onclick = (event) => {
@@ -330,23 +370,65 @@ function setupGridCardTouchBehavior() {
     };
   });
 }
-
+function updateTimeFilterVisuals() {
+  clampTimeFilters();
+  const minInput = document.getElementById('time-input-min');
+  const maxInput = document.getElementById('time-input-max');
+  const minRange = document.getElementById('time-range-min');
+  const maxRange = document.getElementById('time-range-max');
+  const selection = document.getElementById('time-filter-selection');
+  if (minInput) minInput.value = minutesToTimeValue(state.filters.timeStartMin);
+  if (maxInput) maxInput.value = minutesToTimeValue(state.filters.timeStartMax);
+  if (minRange) minRange.value = String(state.filters.timeStartMin);
+  if (maxRange) maxRange.value = String(state.filters.timeStartMax);
+  if (selection) {
+    const leftPct = ((state.filters.timeStartMin - TIME_DOMAIN.min) / (TIME_DOMAIN.max - TIME_DOMAIN.min)) * 100;
+    const rightPct = ((state.filters.timeStartMax - TIME_DOMAIN.min) / (TIME_DOMAIN.max - TIME_DOMAIN.min)) * 100;
+    selection.style.left = `${leftPct}%`;
+    selection.style.right = `${100 - rightPct}%`;
+  }
+}
+function renderMoviesOnly() {
+  const moviesContainer = document.getElementById('movies-container');
+  const selectedWeek = getSelectedWeek();
+  if (!moviesContainer || !selectedWeek) return;
+  moviesContainer.innerHTML = renderMovies(selectedWeek.movies || [], selectedWeek.week || {});
+  setupGridCardTouchBehavior();
+  setView(state.view);
+}
+function setTimeFilter(which, rawValue) {
+  const parsed = Number(rawValue);
+  if (!Number.isFinite(parsed)) return;
+  if (which === 'min') state.filters.timeStartMin = Math.max(TIME_DOMAIN.min, Math.min(parsed, state.filters.timeStartMax));
+  if (which === 'max') state.filters.timeStartMax = Math.min(TIME_DOMAIN.max, Math.max(parsed, state.filters.timeStartMin));
+  clampTimeFilters();
+  updateTimeFilterVisuals();
+  renderMoviesOnly();
+}
+function setupTimeFilterEvents() {
+  const minRange = document.getElementById('time-range-min');
+  const maxRange = document.getElementById('time-range-max');
+  const minInput = document.getElementById('time-input-min');
+  const maxInput = document.getElementById('time-input-max');
+  if (minRange) minRange.oninput = (event) => setTimeFilter('min', event.target.value);
+  if (maxRange) maxRange.oninput = (event) => setTimeFilter('max', event.target.value);
+  if (minInput) minInput.oninput = (event) => {
+    const minutes = parseTimeInput(event.target.value);
+    if (minutes != null) setTimeFilter('min', minutes);
+  };
+  if (maxInput) maxInput.oninput = (event) => {
+    const minutes = parseTimeInput(event.target.value);
+    if (minutes != null) setTimeFilter('max', minutes);
+  };
+}
 function openInfoModal() {
   const modal = document.getElementById('info-modal');
-  if (modal) {
-    modal.classList.add('is-open');
-    modal.setAttribute('aria-hidden', 'false');
-  }
+  if (modal) { modal.classList.add('is-open'); modal.setAttribute('aria-hidden', 'false'); }
 }
-
 function closeInfoModal() {
   const modal = document.getElementById('info-modal');
-  if (modal) {
-    modal.classList.remove('is-open');
-    modal.setAttribute('aria-hidden', 'true');
-  }
+  if (modal) { modal.classList.remove('is-open'); modal.setAttribute('aria-hidden', 'true'); }
 }
-
 function toggleFilterValue(type, value) {
   if (type === 'cinema') {
     const exists = state.filters.cinemas.includes(value);
@@ -358,12 +440,10 @@ function toggleFilterValue(type, value) {
   }
   renderApp();
 }
-
 function resetFilters() {
-  state.filters = { cinemas: [], dates: [] };
+  state.filters = { cinemas: [], dates: [], timeStartMin: TIME_DOMAIN.min, timeStartMax: TIME_DOMAIN.max };
   renderApp();
 }
-
 function performPageSearch() {
   const input = document.getElementById('page-search-input');
   const status = document.getElementById('page-search-status');
@@ -375,61 +455,46 @@ function performPageSearch() {
   const selectedWeek = getSelectedWeek();
   const visibleMovies = sortMoviesForWeek(selectedWeek?.movies || [], selectedWeek?.week || {});
   const hasMatch = visibleMovies.some((movie) => String(movie?.title || '').toLowerCase().includes(state.searchQuery.toLowerCase()));
-  if (!hasMatch) {
-    status.textContent = 'Aucun titre correspondant';
-    input.classList.add('is-error');
-  }
+  if (!hasMatch) { status.textContent = 'Aucun titre correspondant'; input.classList.add('is-error'); }
   renderApp();
 }
-
 function setupSearchControls() {
   const input = document.getElementById('page-search-input');
   const button = document.getElementById('page-search-btn');
   if (!input || !button) return;
   input.value = state.searchQuery || '';
-  input.onkeydown = (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      performPageSearch();
-    }
-  };
+  input.onkeydown = (event) => { if (event.key === 'Enter') { event.preventDefault(); performPageSearch(); } };
   input.oninput = () => {
     const status = document.getElementById('page-search-status');
     if (status) status.textContent = '';
     input.classList.remove('is-error');
-    if (!input.value.trim() && state.searchQuery) {
-      state.searchQuery = '';
-      renderApp();
-    }
+    if (!input.value.trim() && state.searchQuery) { state.searchQuery = ''; renderApp(); }
   };
   button.onclick = performPageSearch;
 }
-
 function setupControlEvents() {
   const weekSelect = document.getElementById('week-select');
   const filterResetInlineBtn = document.getElementById('filter-reset-inline-btn');
   const infoOpenBtn = document.getElementById('info-open-btn');
   const infoCloseBtn = document.getElementById('info-close-btn');
-
   if (weekSelect) {
     weekSelect.onchange = (event) => {
       state.selectedWeekId = event.target.value;
-      state.filters = { cinemas: [], dates: [] };
+      state.filters = { cinemas: [], dates: [], timeStartMin: TIME_DOMAIN.min, timeStartMax: TIME_DOMAIN.max };
       renderApp();
     };
   }
   if (filterResetInlineBtn) filterResetInlineBtn.onclick = resetFilters;
   if (infoOpenBtn) infoOpenBtn.onclick = openInfoModal;
   if (infoCloseBtn) infoCloseBtn.onclick = closeInfoModal;
-
   document.querySelectorAll('.filter-chip-toggle').forEach((node) => {
     node.onclick = () => toggleFilterValue(node.dataset.filterType, node.dataset.filterValue);
   });
   document.querySelectorAll('[data-info-close="true"]').forEach((node) => { node.onclick = closeInfoModal; });
   document.onkeydown = (event) => { if (event.key === 'Escape') closeInfoModal(); };
 }
-
 function renderApp() {
+  clampTimeFilters();
   const switcherContainer = document.getElementById('week-switcher-container');
   const moviesContainer = document.getElementById('movies-container');
   const weeks = getCurrentWeeks();
@@ -444,10 +509,11 @@ function renderApp() {
   setupViewSwitch();
   setupControlEvents();
   setupSearchControls();
+  setupTimeFilterEvents();
   setupGridCardTouchBehavior();
+  updateTimeFilterVisuals();
   setView(state.view);
 }
-
 async function main() {
   const moviesContainer = document.getElementById('movies-container');
   const infoModalMount = document.getElementById('info-modal-mount');
@@ -462,5 +528,4 @@ async function main() {
     if (moviesContainer) moviesContainer.innerHTML = `<div class="empty">Erreur : ${escapeHtml(error.message)}</div>`;
   }
 }
-
 main();
