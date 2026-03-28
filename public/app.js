@@ -15,15 +15,12 @@ const CINEMA_LINKS = {
   bondy: 'https://cinemalraux.fr/FR/43/horaires-cinema-andre-malraux-bondy.html',
 };
 const FILTER_CINEMA_KEYS = ['montreuil', 'pantin', 'romainville', 'bagnolet', 'bobigny', 'bondy'];
-const TIME_STEP_MINUTES = 5;
-const HISTOGRAM_BIN_MINUTES = 30;
 
 const state = {
   data: null,
   selectedWeekId: null,
   view: 'line',
   filters: { cinemas: [], dates: [] },
-  timeFilter: { min: null, max: null },
   searchQuery: '',
 };
 
@@ -128,31 +125,8 @@ function formatWeekRangeLabel(week) {
 
 function timeToMinutes(timeStr) {
   const match = /^(\d{1,2})h(\d{2})$/.exec(String(timeStr || ''));
-  return match ? Number(match[1]) * 60 + Number(match[2]) : null;
+  return match ? Number(match[1]) * 60 + Number(match[2]) : 9999;
 }
-
-function minutesToTimeValue(totalMinutes) {
-  const safe = Math.max(0, Math.min(24 * 60 - 1, Math.round(totalMinutes)));
-  const hours = Math.floor(safe / 60);
-  const minutes = safe % 60;
-  return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
-}
-
-function minutesToDisplayLabel(totalMinutes) {
-  const safe = Math.max(0, Math.min(24 * 60 - 1, Math.round(totalMinutes)));
-  const hours = Math.floor(safe / 60);
-  const minutes = safe % 60;
-  return `${String(hours).padStart(2, '0')}h${String(minutes).padStart(2, '0')}`;
-}
-
-function timeValueToMinutes(value) {
-  const match = /^(\d{2}):(\d{2})$/.exec(String(value || ''));
-  return match ? Number(match[1]) * 60 + Number(match[2]) : null;
-}
-
-function roundDownToStep(value, step) { return Math.floor(value / step) * step; }
-function roundUpToStep(value, step) { return Math.ceil(value / step) * step; }
-function clamp(value, min, max) { return Math.min(max, Math.max(min, value)); }
 
 function getMovieDayItems(movie, key) { return movie?.days?.[key] || []; }
 
@@ -167,8 +141,7 @@ function getBestLeadDayPriority(movie, week) {
   for (const show of leadShows) {
     const cinemaClass = getCinemaClass(show.cinema);
     cinemaRank = Math.min(cinemaRank, CINEMA_PRIORITY[cinemaClass] ?? 999);
-    const minutes = timeToMinutes(show.time);
-    if (minutes != null) timeRank = Math.min(timeRank, minutes);
+    timeRank = Math.min(timeRank, timeToMinutes(show.time));
   }
   return { hasLeadDay: true, cinemaRank, timeRank };
 }
@@ -177,83 +150,31 @@ function hasVisibleShow(movie, week) {
   return getVisibleDays(week?.days || []).some((day) => getMovieDayItems(movie, day.key).length > 0);
 }
 
-function getBaseFilteredDayItems(movie, week) {
+function movieMatchesFilters(movie, week) {
   const selectedCinemas = state.filters.cinemas;
   const selectedDates = state.filters.dates;
   const visibleDays = getVisibleDays(week?.days || []);
   const daysToInspect = selectedDates.length ? visibleDays.filter((day) => selectedDates.includes(day.key)) : visibleDays;
-  const result = [];
+  if (!daysToInspect.length) return false;
   for (const day of daysToInspect) {
     const items = getMovieDayItems(movie, day.key);
     if (!items.length) continue;
-    const cinemaFiltered = selectedCinemas.length ? items.filter((item) => selectedCinemas.includes(getCinemaClass(item.cinema))) : items.slice();
-    if (cinemaFiltered.length) result.push({ day, items: cinemaFiltered });
-  }
-  return result;
-}
-
-function movieMatchesFilters(movie, week) {
-  return getBaseFilteredDayItems(movie, week).length > 0;
-}
-
-function getTimeDomainForWeek(week) {
-  const movies = week?.movies || [];
-  const minuteValues = [];
-  for (const movie of movies) {
-    const dayGroups = getBaseFilteredDayItems(movie, week?.week || week || {});
-    for (const group of dayGroups) {
-      for (const item of group.items) {
-        const minutes = timeToMinutes(item.time);
-        if (minutes != null) minuteValues.push(minutes);
-      }
-    }
-  }
-  if (!minuteValues.length) return { min: 8 * 60, max: 23 * 60, bins: [] };
-  const min = roundDownToStep(Math.min(...minuteValues), HISTOGRAM_BIN_MINUTES);
-  const max = roundUpToStep(Math.max(...minuteValues), HISTOGRAM_BIN_MINUTES);
-  const bins = [];
-  for (let start = min; start <= max; start += HISTOGRAM_BIN_MINUTES) {
-    const end = start + HISTOGRAM_BIN_MINUTES;
-    const count = minuteValues.filter((value) => value >= start && value < end).length;
-    bins.push({ start, end, count });
-  }
-  return { min, max, bins };
-}
-
-function getEffectiveTimeFilter(weekEntry) {
-  const domain = getTimeDomainForWeek(weekEntry);
-  const currentMin = state.timeFilter.min == null ? domain.min : clamp(state.timeFilter.min, domain.min, domain.max);
-  const currentMax = state.timeFilter.max == null ? domain.max : clamp(state.timeFilter.max, domain.min, domain.max);
-  const min = Math.min(currentMin, currentMax);
-  const max = Math.max(currentMin, currentMax);
-  return { ...domain, selectedMin: min, selectedMax: max };
-}
-
-function movieHasTimeInRange(movie, weekEntry, timeFilter) {
-  const groups = getBaseFilteredDayItems(movie, weekEntry?.week || weekEntry || {});
-  for (const group of groups) {
-    if (group.items.some((item) => {
-      const minutes = timeToMinutes(item.time);
-      return minutes != null && minutes >= timeFilter.selectedMin && minutes <= timeFilter.selectedMax;
-    })) {
-      return true;
-    }
+    if (!selectedCinemas.length) return true;
+    if (items.some((item) => selectedCinemas.includes(getCinemaClass(item.cinema)))) return true;
   }
   return false;
 }
 
-function sortMoviesForWeek(movies, weekEntry) {
-  const week = weekEntry?.week || weekEntry || {};
-  const timeFilter = getEffectiveTimeFilter(weekEntry);
+function sortMoviesForWeek(movies, week) {
   const query = (state.searchQuery || '').trim().toLowerCase();
   return (movies || []).slice()
     .filter((movie) => hasVisibleShow(movie, week))
     .filter((movie) => movieMatchesFilters(movie, week))
-    .filter((movie) => movieHasTimeInRange(movie, weekEntry, timeFilter))
     .sort((a, b) => {
       const aMatch = query && String(a?.title || '').toLowerCase().includes(query);
       const bMatch = query && String(b?.title || '').toLowerCase().includes(query);
       if (aMatch !== bMatch) return aMatch ? -1 : 1;
+
       const aPriority = getBestLeadDayPriority(a, week);
       const bPriority = getBestLeadDayPriority(b, week);
       if (aPriority.hasLeadDay !== bPriority.hasLeadDay) return aPriority.hasLeadDay ? -1 : 1;
@@ -291,89 +212,37 @@ function renderFilterToggleChip(label, classes, type, value, isActive) {
 
 function renderFilterControls(week) {
   const visibleDays = getVisibleDays(week?.days || []);
-  const cinemaChips = FILTER_CINEMA_KEYS.map((cinemaKey) => renderFilterToggleChip(
-    CINEMA_LABELS[cinemaKey] || cinemaKey,
-    `filter-chip--cinema filter-chip--${cinemaKey}`,
-    'cinema',
-    cinemaKey,
-    state.filters.cinemas.includes(cinemaKey)
-  )).join('');
+  const cinemaChips = FILTER_CINEMA_KEYS.map((cinemaKey) =>
+    renderFilterToggleChip(
+      CINEMA_LABELS[cinemaKey] || cinemaKey,
+      `filter-chip--cinema filter-chip--${cinemaKey}`,
+      'cinema',
+      cinemaKey,
+      state.filters.cinemas.includes(cinemaKey)
+    )
+  ).join('');
 
-  const dateChips = visibleDays.map((day) => renderFilterToggleChip(
-    getDateFilterLabel(day),
-    'filter-chip--date',
-    'date',
-    day.key,
-    state.filters.dates.includes(day.key)
-  )).join('');
+  const dateChips = visibleDays.map((day) =>
+    renderFilterToggleChip(
+      getDateFilterLabel(day),
+      'filter-chip--date',
+      'date',
+      day.key,
+      state.filters.dates.includes(day.key)
+    )
+  ).join('');
 
   return `${cinemaChips}${dateChips}<button id="filter-reset-inline-btn" class="filter-reset-inline-btn" type="button">Réinitialiser</button>`;
 }
 
-function renderHistogramBars(timeFilter) {
-  const maxCount = Math.max(1, ...timeFilter.bins.map((bin) => bin.count));
-  return timeFilter.bins.map((bin) => {
-    const height = Math.max(8, Math.round((bin.count / maxCount) * 64));
-    const inRange = bin.end > timeFilter.selectedMin && bin.start < timeFilter.selectedMax;
-    const cls = inRange ? 'is-in-range' : 'is-out-range';
-    return `<div class="time-filter-bar ${cls}" style="height:${height}px" title="${escapeHtml(minutesToDisplayLabel(bin.start))}–${escapeHtml(minutesToDisplayLabel(bin.end))} : ${bin.count}"></div>`;
-  }).join('');
-}
-
-function renderTimeFilter(weekEntry) {
-  const timeFilter = getEffectiveTimeFilter(weekEntry);
-  const selectedWidth = Math.max(0, timeFilter.selectedMax - timeFilter.selectedMin);
-  const totalWidth = Math.max(1, timeFilter.max - timeFilter.min);
-  const startPct = ((timeFilter.selectedMin - timeFilter.min) / totalWidth) * 100;
-  const widthPct = (selectedWidth / totalWidth) * 100;
-  return `
-    <div class="time-filter" id="time-filter" aria-label="Filtrer par heure de début">
-      <div class="time-filter-head">
-        <div class="time-filter-title">Heure de début</div>
-        <div class="time-filter-range-label">${escapeHtml(minutesToDisplayLabel(timeFilter.selectedMin))} – ${escapeHtml(minutesToDisplayLabel(timeFilter.selectedMax))}</div>
-      </div>
-      <div class="time-filter-inputs">
-        <label class="time-filter-label">Min
-          <input id="time-min-input" class="time-filter-time-input" type="time" step="300" value="${escapeHtml(minutesToTimeValue(timeFilter.selectedMin))}">
-        </label>
-        <label class="time-filter-label">Max
-          <input id="time-max-input" class="time-filter-time-input" type="time" step="300" value="${escapeHtml(minutesToTimeValue(timeFilter.selectedMax))}">
-        </label>
-      </div>
-      <div class="time-filter-chart-wrap">
-        <div class="time-filter-bars">${renderHistogramBars(timeFilter)}</div>
-        <div class="time-filter-track">
-          <div class="time-filter-active-track" style="left:${startPct}%; width:${widthPct}%"></div>
-        </div>
-        <div class="time-filter-sliders">
-          <input id="time-min-range" class="time-filter-range time-filter-range--min" type="range" min="${timeFilter.min}" max="${timeFilter.max}" step="${TIME_STEP_MINUTES}" value="${timeFilter.selectedMin}" aria-label="Heure minimale">
-          <input id="time-max-range" class="time-filter-range time-filter-range--max" type="range" min="${timeFilter.min}" max="${timeFilter.max}" step="${TIME_STEP_MINUTES}" value="${timeFilter.selectedMax}" aria-label="Heure maximale">
-        </div>
-      </div>
-      <div class="time-filter-axis">
-        <span>${escapeHtml(minutesToDisplayLabel(timeFilter.min))}</span>
-        <span>${escapeHtml(minutesToDisplayLabel(timeFilter.max))}</span>
-      </div>
-    </div>
-  `;
-}
-
-function renderTopControls(weeks, selectedId, weekEntry) {
-  return `
-    <div class="top-controls">
-      <div class="controls-row controls-row--primary">
-        ${renderWeekSwitcher(weeks, selectedId)}
-        ${renderTimeFilter(weekEntry)}
-      </div>
-      <div class="filter-bar">
-        <div class="filter-summary" id="filter-summary">${renderFilterControls(weekEntry?.week || weekEntry || {})}</div>
-      </div>
-    </div>
-  `;
+function renderTopControls(weeks, selectedId, week) {
+  return `<div class="top-controls">${renderWeekSwitcher(weeks, selectedId)}<div class="filter-bar"><div class="filter-summary" id="filter-summary">${renderFilterControls(week)}</div></div></div>`;
 }
 
 function renderInfoModal() {
-  const items = FILTER_CINEMA_KEYS.map((key) => `<li><strong>${escapeHtml(CINEMA_LABELS[key])}</strong> : <a href="${escapeHtml(CINEMA_LINKS[key])}" target="_blank" rel="noopener noreferrer">${escapeHtml(CINEMA_LINKS[key])}</a></li>`).join('');
+  const items = FILTER_CINEMA_KEYS
+    .map((key) => `<li><strong>${escapeHtml(CINEMA_LABELS[key])}</strong> : <a href="${escapeHtml(CINEMA_LINKS[key])}" target="_blank" rel="noopener noreferrer">${escapeHtml(CINEMA_LINKS[key])}</a></li>`)
+    .join('');
   return `<div id="info-modal" class="info-modal" aria-hidden="true"><div class="filter-modal__backdrop" data-info-close="true"></div><div class="filter-modal__panel info-modal__panel" role="dialog" aria-modal="true" aria-labelledby="info-title"><div class="filter-modal__header"><h2 id="info-title" class="filter-modal__title">Liens vers sites des cinémas</h2><button id="info-close-btn" class="filter-modal__close" type="button" aria-label="Fermer">×</button></div><div class="info-modal__content"><ul class="info-links-list">${items}</ul></div></div></div>`;
 }
 
@@ -426,10 +295,9 @@ function renderGridMovie(movie, week, index) {
   return `<article class="movie-grid-card" data-movie-index="${index}">${renderPoster(movie.poster, movie.title, 'movie-grid-poster')}<div class="movie-grid-overlay"><div class="movie-grid-title">${escapeHtml(movie.title)}</div><div class="movie-grid-meta">${escapeHtml(movie.genre || '')}${movie.genre && movie.duration ? ' · ' : ''}${escapeHtml(movie.duration || '')}</div><div class="movie-grid-actions">${renderInfoButton(movie.infoUrl, 'grid-btn')}</div><div class="grid-scroll">${renderGridDayBlocks(week.days || [], movie.days || {})}</div></div></article>`;
 }
 
-function renderMovies(movies, weekEntry) {
-  const visibleMovies = sortMoviesForWeek(movies || [], weekEntry);
+function renderMovies(movies, week) {
+  const visibleMovies = sortMoviesForWeek(movies || [], week);
   if (!visibleMovies.length) return '<div class="empty">Aucun film ne correspond aux filtres sélectionnés.</div>';
-  const week = weekEntry?.week || weekEntry || {};
   return visibleMovies.map((movie, index) => `${renderListMovie(movie, week, index)}${renderGridMovie(movie, week, index)}`).join('');
 }
 
@@ -496,26 +364,6 @@ function resetFilters() {
   renderApp();
 }
 
-function setTimeFilter(minValue, maxValue) {
-  const weekEntry = getSelectedWeek();
-  const domain = getEffectiveTimeFilter(weekEntry);
-  let nextMin = clamp(roundDownToStep(minValue, TIME_STEP_MINUTES), domain.min, domain.max);
-  let nextMax = clamp(roundUpToStep(maxValue, TIME_STEP_MINUTES), domain.min, domain.max);
-  if (nextMin > nextMax) {
-    const swap = nextMin;
-    nextMin = nextMax;
-    nextMax = swap;
-  }
-  state.timeFilter = { min: nextMin, max: nextMax };
-  renderApp();
-}
-
-function resetTimeFilterToDomain() {
-  const weekEntry = getSelectedWeek();
-  const domain = getTimeDomainForWeek(weekEntry);
-  state.timeFilter = { min: domain.min, max: domain.max };
-}
-
 function performPageSearch() {
   const input = document.getElementById('page-search-input');
   const status = document.getElementById('page-search-status');
@@ -525,7 +373,7 @@ function performPageSearch() {
   input.classList.remove('is-error');
   if (!state.searchQuery) { renderApp(); return; }
   const selectedWeek = getSelectedWeek();
-  const visibleMovies = sortMoviesForWeek(selectedWeek?.movies || [], selectedWeek);
+  const visibleMovies = sortMoviesForWeek(selectedWeek?.movies || [], selectedWeek?.week || {});
   const hasMatch = visibleMovies.some((movie) => String(movie?.title || '').toLowerCase().includes(state.searchQuery.toLowerCase()));
   if (!hasMatch) {
     status.textContent = 'Aucun titre correspondant';
@@ -557,28 +405,6 @@ function setupSearchControls() {
   button.onclick = performPageSearch;
 }
 
-function setupTimeFilterControls() {
-  const minRange = document.getElementById('time-min-range');
-  const maxRange = document.getElementById('time-max-range');
-  const minInput = document.getElementById('time-min-input');
-  const maxInput = document.getElementById('time-max-input');
-  if (!minRange || !maxRange || !minInput || !maxInput) return;
-
-  minRange.oninput = () => setTimeFilter(Number(minRange.value), Number(maxRange.value));
-  maxRange.oninput = () => setTimeFilter(Number(minRange.value), Number(maxRange.value));
-
-  minInput.onchange = () => {
-    const minValue = timeValueToMinutes(minInput.value);
-    const maxValue = timeValueToMinutes(maxInput.value);
-    if (minValue != null && maxValue != null) setTimeFilter(minValue, maxValue);
-  };
-  maxInput.onchange = () => {
-    const minValue = timeValueToMinutes(minInput.value);
-    const maxValue = timeValueToMinutes(maxInput.value);
-    if (minValue != null && maxValue != null) setTimeFilter(minValue, maxValue);
-  };
-}
-
 function setupControlEvents() {
   const weekSelect = document.getElementById('week-select');
   const filterResetInlineBtn = document.getElementById('filter-reset-inline-btn');
@@ -589,7 +415,6 @@ function setupControlEvents() {
     weekSelect.onchange = (event) => {
       state.selectedWeekId = event.target.value;
       state.filters = { cinemas: [], dates: [] };
-      resetTimeFilterToDomain();
       renderApp();
     };
   }
@@ -602,8 +427,6 @@ function setupControlEvents() {
   });
   document.querySelectorAll('[data-info-close="true"]').forEach((node) => { node.onclick = closeInfoModal; });
   document.onkeydown = (event) => { if (event.key === 'Escape') closeInfoModal(); };
-
-  setupTimeFilterControls();
 }
 
 function renderApp() {
@@ -616,8 +439,8 @@ function renderApp() {
     if (moviesContainer) moviesContainer.innerHTML = '<div class="empty">Aucune donnée disponible.</div>';
     return;
   }
-  if (switcherContainer) switcherContainer.innerHTML = renderTopControls(weeks, selectedWeek.id || selectedWeek.week?.label, selectedWeek);
-  if (moviesContainer) moviesContainer.innerHTML = renderMovies(selectedWeek.movies || [], selectedWeek);
+  if (switcherContainer) switcherContainer.innerHTML = renderTopControls(weeks, selectedWeek.id || selectedWeek.week?.label, selectedWeek.week);
+  if (moviesContainer) moviesContainer.innerHTML = renderMovies(selectedWeek.movies || [], selectedWeek.week || {});
   setupViewSwitch();
   setupControlEvents();
   setupSearchControls();
@@ -633,7 +456,6 @@ async function main() {
     state.data = await loadData();
     const weeks = getCurrentWeeks();
     state.selectedWeekId = weeks[0] ? (weeks[0].id || weeks[0].week?.label) : null;
-    resetTimeFilterToDomain();
     renderApp();
   } catch (error) {
     console.error(error);
