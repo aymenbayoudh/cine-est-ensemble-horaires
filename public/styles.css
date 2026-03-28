@@ -650,3 +650,40 @@ a { color: inherit; }
   .filter-reset-btn,
   .filter-apply-btn { width: 100%; }
 }
+/* V6 – fusionne ce bloc à la fin de public/styles.css */
+.week-switcher {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.week-select {
+  width: auto;
+  min-width: min(26ch, 100%);
+  max-width: 100%;
+  padding-right: 28px;
+}
+
+@media (max-width: 640px) {
+  .page-search {
+    gap: 8px;
+  }
+
+  .page-search-box {
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .page-search-btn {
+    margin-top: 0;
+    align-self: stretch;
+  }
+
+  .week-switcher {
+    width: 100%;
+  }
+
+  .week-select {
+    width: 100%;
+    min-width: 0;
+  }
+}
