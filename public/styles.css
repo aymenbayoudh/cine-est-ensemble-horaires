@@ -1313,7 +1313,7 @@ a { color: inherit; }
   font-size: 18px;
   line-height: 1;
   display: inline-block;
-  transform: translateY(3px);
+  transform: translateY(1px);
 }
 }
 
