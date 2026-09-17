@@ -1,4 +1,4 @@
-name: Build and deploy live site
+name: Refresh and deploy cinema site
 
 on:
   workflow_dispatch:
@@ -19,18 +19,19 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -38,21 +39,39 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Build latest live data (V3)
+      - name: Refresh cinema data
         run: python scripts/build_latest.V3.py --output data/latest.json
 
-      - name: Prepare Pages artifact
+      - name: Validate generated data
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("data/latest.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+          weeks = data.get("weeks") or []
+          movie_count = sum(len(week.get("movies") or []) for week in weeks)
+
+          if not weeks:
+              raise SystemExit("Generated data contains no weeks; refusing to deploy.")
+          if movie_count == 0:
+              raise SystemExit("Generated data contains no films; refusing to deploy.")
+
+          print(f"Validated {len(weeks)} week(s), {movie_count} film entries.")
+          PY
+
+      - name: Assemble site
         run: |
           rm -rf _site
-          mkdir -p _site
-          cp -R public/. _site/
           mkdir -p _site/data
+          cp -R public/. _site/
           cp data/latest.json _site/data/latest.json
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: _site
@@ -62,6 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Deploy to GitHub Pages
