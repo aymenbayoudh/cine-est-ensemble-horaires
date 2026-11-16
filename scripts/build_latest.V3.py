@@ -40,7 +40,7 @@ MONTHS_FR = {
     "décembre": 12, "decembre": 12, "déc": 12, "dec": 12,
 }
 VERSION_RE = re.compile(r"\b(VF(?:STF|ST-SME| OCAP)?|VO(?:ST ?FR|STF| OCAP)?|VOST ?FR|VF OCAP|VO OCAP|MU)\b", re.I)
-TIME_RE = re.compile(r"\b(\d{1,2})\s*[Hh:]\s*(\d{2})\b")
+TIME_RE = re.compile(r"\b(\d{1,2})(?:\s*[Hh](?:\s*(\d{2}))?|\s*:\s*(\d{2}))\b")
 DATE_DDMMYYYY_RE = re.compile(r"\b(\d{1,2})/(\d{1,2})/(\d{4})\b")
 DATE_DD_MONTH_RE = re.compile(r"\b(\d{1,2})\s+([A-Za-zÀ-ÿ\.]+)(?:\s+(\d{4}))?\b", re.I)
 BOOKING_RE = re.compile(r"cine\.boutique/media/\d+\?showId=\d+", re.I)
@@ -97,7 +97,9 @@ def parse_time(text: str) -> Optional[str]:
     m = TIME_RE.search(text or "")
     if not m:
         return None
-    return f"{int(m.group(1)):02d}h{int(m.group(2)):02d}"
+    hour = int(m.group(1))
+    minute = int(m.group(2) or m.group(3) or 0)
+    return f"{hour:02d}h{minute:02d}"
 
 
 def normalize_duration(raw: str) -> str:
@@ -265,9 +267,11 @@ def parse_trailer_from_card(card: Tag, base_url: str) -> str:
     return absolute(base_url, rel)
 
 
-def parse_erakys_listing_html(html: str, source: Dict[str, str], today: dt.date) -> List[Movie]:
+def parse_erakys_listing_html(
+    html: str, source: Dict[str, str], today: dt.date, week_start: Optional[dt.date] = None
+) -> List[Movie]:
     soup = BeautifulSoup(html, "html.parser")
-    week_start = parse_selected_week_start_from_erakys(soup, today) or date_to_week_start(today)
+    week_start = week_start or parse_selected_week_start_from_erakys(soup, today) or date_to_week_start(today)
     days = [week_start + dt.timedelta(days=i) for i in range(7)]
     movies: Dict[str, Movie] = {}
 
@@ -359,33 +363,11 @@ def parse_erakys_listing_html(html: str, source: Dict[str, str], today: dt.date)
     return out
 
 
-def extract_week_header_data(header_text: str, today: dt.date) -> Optional[Tuple[dt.date, dt.date]]:
-    txt = normalize_space(header_text)
-    m = re.search(r"Semaine du\s*(\d{1,2})[\-/](\d{1,2})\s*au\s*(\d{1,2})[\-/](\d{1,2})", txt, re.I)
-    if m:
-        d1, m1, d2, m2 = map(int, m.groups())
-        y1 = infer_year_for_month(m1, today)
-        y2 = infer_year_for_month(m2, today)
-        try:
-            return dt.date(y1, m1, d1), dt.date(y2, m2, d2)
-        except Exception:
-            return None
-    return None
-
-
 def parse_trianon_html(html: str, today: dt.date) -> List[Movie]:
     soup = BeautifulSoup(html, 'html.parser')
     movies: Dict[str, Movie] = {}
 
     for slide in soup.select('#carouselGrille .carousel-item'):
-        h3 = slide.find('h3')
-        if not h3:
-            continue
-        week_data = extract_week_header_data(h3.get_text(' ', strip=True), today)
-        if not week_data:
-            continue
-        start, _ = week_data
-        current_year = start.year
         table = slide.find('table')
         if not table:
             continue
@@ -396,7 +378,7 @@ def parse_trianon_html(html: str, today: dt.date) -> List[Movie]:
         column_dates: List[Optional[dt.date]] = [None]
         for cell in header_cells[1:]:
             txt = normalize_space(cell.get_text(' ', strip=True))
-            d = parse_french_date(txt, today=today, default_year=current_year)
+            d = parse_french_date(txt, today)
             column_dates.append(d)
         for row in rows[1:]:
             cells = row.find_all(['td', 'th'])
@@ -442,7 +424,6 @@ def parse_trianon_html(html: str, today: dt.date) -> List[Movie]:
                 m = re.search(r"\b(\d{1,2}h\d{2}|\d{1,3}\s*min)\b", text, re.I)
                 if m:
                     movie.duration = normalize_duration(m.group(1))
-        existing = {(s.date.isoformat(), s.time, s.booking_url) for s in movie.shows}
         for tr in card.select('#seances table tr'):
             txt = normalize_space(tr.get_text(' ', strip=True))
             d = parse_french_date(txt, today)
@@ -451,17 +432,15 @@ def parse_trianon_html(html: str, today: dt.date) -> List[Movie]:
                 continue
             a = tr.find('a', href=True)
             booking = absolute(TRIANON_SOURCE['url'], a.get('href', '')) if a else ''
-            key_show = (d.isoformat(), t, booking)
-            if key_show in existing:
-                continue
-            existing.add(key_show)
             movie.shows.append(Show(date=d, time=t, version=parse_version(txt), cinema=TRIANON_SOURCE['name'], booking_url=booking))
 
     out = []
     for movie in movies.values():
         dedup = {}
-        for s in movie.shows:
-            dedup[(s.date.isoformat(), s.time, s.cinema, s.booking_url)] = s
+        for show in movie.shows:
+            key = (show.date, show.time, show.version)
+            if key not in dedup or (show.booking_url and not dedup[key].booking_url):
+                dedup[key] = show
         movie.shows = sorted(dedup.values(), key=lambda s: (s.date, s.time, s.cinema))
         if movie.shows:
             out.append(movie)
@@ -625,7 +604,7 @@ def collect_erakys_movies_for_two_weeks(
         except Exception as exc:
             print(f"[warn] failed ajax week {source['name']} {week_start}: {exc}", file=sys.stderr)
             continue
-        chunks.append(parse_erakys_listing_html(fragment_html, source, today))
+        chunks.append(parse_erakys_listing_html(fragment_html, source, today, week_start=week_start))
         parsed_starts.add(week_start)
 
     if not chunks:
@@ -694,6 +673,14 @@ def main() -> int:
     current_start, next_start, merged = filter_to_target_weeks(merged, today)
     current_week = build_week_payload(merged, current_start)
     next_week = build_week_payload(merged, next_start)
+    for week_start in (current_start, next_start):
+        counts = {source['name']: 0 for source in (*ERAKYS_SOURCES, TRIANON_SOURCE)}
+        for movie in merged:
+            for show in movie.shows:
+                if show.date >= today and date_to_week_start(show.date) == week_start and show.cinema in counts:
+                    counts[show.cinema] += 1
+        coverage = ', '.join(f'{cinema}={count}' for cinema, count in counts.items())
+        print(f'[info] Séances à venir, semaine du {week_start}: {coverage}', file=sys.stderr)
     payload = {
         'generatedAt': dt.datetime.now().isoformat(timespec='seconds'),
         'week': current_week['week'],
